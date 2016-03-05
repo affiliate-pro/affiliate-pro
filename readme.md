@@ -1,7 +1,18 @@
 # Affiliate PRO
 Import affiliate data and statistics to your Wordpress site. 
 
-![Screenshot Earnings](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/screenshots/screenshot-earnings.png)
+### Features
+* Imports programs and commissions.
+* Imports coupon codes.
+* Imports earnings & transactions.
+* Supports multiple affiliate networks.
+* Auto-generated short links from tracking urls.
+
+##### Future features (cooming soon)
+* Better earning reports.
+* Banner rotation widgets.
+* Import Google Analytics data.
+* Auto trigger Google Analytics events.
 
 ### Installation
 1. Upload the entire 'affiliate-pro' folder to your '/wp-content/plugins/' directory or download it directly from Plugins in WordPress Dashboard.
@@ -9,21 +20,27 @@ Import affiliate data and statistics to your Wordpress site.
 
 ### Supported affiliate networks
 This plugin currently supports:
-Adtraction, Adrecord
+* [Adrecord](#adrecord)
+* [Adtraction](#adtraction)
 
-![Adtraction Wordpress](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/programs/logos/adtraction.jpg)
+##### Adrecord
+* Program information with short links
+* Earnings & transaction 
+
+##### Adtraction
 * Program information with short links
 * Listing of coupon codes
 * Earnings & transaction 
 
-![Adrecord Wordpress](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/programs/logos/adrecord.gif)
-* Program information with short links
-* Earnings & transaction 
+
 
 ### Screenshots
 
 ##### Programs & Links
 ![Screenshot Links](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/screenshots/screenshot-links.png)
+
+##### Earnings
+![Screenshot Earnings](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/screenshots/screenshot-earnings.png)
 
 ##### Settings
 ![Screenshot Links](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/screenshots/screenshot-settings.png)
