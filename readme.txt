@@ -20,7 +20,9 @@ Sync your wordpress site with your affiliate data. Adds short links and displays
 
 = 1.0 =
 *Release Date - 5 mars 2016*
+
 First BETA release.
+
 * Currently supports simple Adtraction API calls.
 
 == Frequently Asked Questions ==
