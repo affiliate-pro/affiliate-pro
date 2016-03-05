@@ -85,24 +85,24 @@ class Affiliate {
 			return; // @todo: This should check for every program.
 
 		\add_submenu_page('affiliate',
-	        'Affiliate > Links',
-	        'Links',
+	        'Affiliate > ' . __('Programs', 'ymas'),
+	        __('Programs', 'ymas'),
 	        'manage_options',
-	        'affiliate-links',
-	        array(&$this, 'LoadViewLinks')
+	        'affiliate-programs',
+	        array(&$this, 'LoadViewPrograms')
         );
 
         \add_submenu_page('affiliate',
-	        'Affiliate > Coupon Codes',
-	        'Coupons',
+	        'Affiliate > ' . __('Coupon Codes', 'ymas'),
+	        __('Coupons', 'ymas'),
 	        'manage_options',
 	        'affiliate-coupons',
 	        array(&$this, 'LoadViewCoupon')
         );
 
         \add_submenu_page('affiliate',
-	        'Affiliate > Earnings',
-	        'Earnings',
+	        'Affiliate > ' . __('Earnings', 'ymas'),
+	        __('Earnings', 'ymas'),
 	        'manage_options',
 	        'affiliate-earnings',
 	        array(&$this, 'LoadViewEarnings')
@@ -115,7 +115,7 @@ class Affiliate {
 
 	public function RegisterTitanDashboard() {
 		$this->admin_dashboard = $this->titan->createAdminPanel( array(
-			'name' => 'Affiliate',
+			'name' => __('Affiliate', 'ymas'),
 			'capability' => '',
 		    'icon' => 'https://cdn3.iconfinder.com/data/icons/woothemesiconset/16/chart.png',
 		));
@@ -123,19 +123,22 @@ class Affiliate {
 
 	public function RegisterTitanSettingsPages() {
 		$this->admin_settings_page = $this->admin_dashboard->createAdminPanel( array(
-		    'name' => 'Settings',
+		    'name' => __('Settings', 'ymas'),
 		    'title' => 'Affiliate <small>&gt; Settings</small>',
+		    'slug' => 'settings',
 		));
 	}
 
 	public function RegisterTitanSettingsTabs() {
 
 		$this->admin_settings_api_tab = $this->admin_settings_page->createTab( array(
-		    'name' => 'Integrations',
+		    'name' => __('Integrations', 'ymas'),
+		    'slug' => 'integrations',
 		));
 
 		$this->admin_settings_advanced_tab = $this->admin_settings_page->createTab( array(
-		    'name' => 'Advanced Settings',
+		    'name' => __('Advanced Settings', 'ymas'),
+		    'slug' => 'advanced-settings',
 		));
 	}
 
@@ -160,7 +163,7 @@ class Affiliate {
 		));
 	}
 
-	public function LoadViewLinks() {
+	public function LoadViewPrograms() {
 		global $ymas;
 		$this->LoadView('links', array(
 			'adtraction_programs' => $ymas->adtraction->api->programs(),

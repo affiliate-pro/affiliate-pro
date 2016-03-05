@@ -1,4 +1,4 @@
-<?php
+<?php 
 namespace YoungMedia\Affiliate;
 
 
@@ -22,19 +22,9 @@ if ( ! defined( 'ABSPATH' ) )
 	exit; 
 
 
-if (isset($_GET['ymas_redirect']))
-	die(print_r($_GET));
-
-/** 
- * Define default constants
+/**
+ * Require plugin source files
 */
-define('YMAS_ASSETS', plugins_url( 'static/', __FILE__ ));
-define('YMAS_ROOT_DIR', trailingslashit(__DIR__));
-
-// Require Titan Framework Checker
-require_once('titan-framework-checker.php');
-
-// Require source files
 require_once('src/apis/adtraction.api.php');
 require_once('src/apis/adrecord.api.php');
 require_once('src/affiliate-pro.class.php');
@@ -43,14 +33,28 @@ require_once('src/adrecord.class.php');
 require_once('src/double.class.php');
 require_once('src/functions.php');
 
+
+/** 
+ * Define default constants
+*/
+define('YMAS_ASSETS', plugins_url( 'static/', __FILE__ ));
+define('YMAS_ROOT_DIR', trailingslashit(__DIR__));
+define('YMAS_TEXTDOMAIN_PATH', plugin_basename( dirname( __FILE__ ) ) . '/languages' );
+
+
 /**
- * Load plugin text domains 
+ * Load plugin textdomain 
 */
 add_action( 'plugins_loaded', 'YoungMedia\Affiliate\LoadPluginTextdomain' );
 
+
 /**
- * Initialize plugin 
+ * Checks if Titan Framework is installed and activated
+ * Initialize plugin only if TitanFramework is installed and activated
 */
+require_once('titan-framework-checker.php');
+
 if (class_exists('TitanFramework')) {
+
 	add_action('after_setup_theme', array('\YoungMedia\Affiliate\Affiliate', 'InitAffiliatePlugin'));
 }

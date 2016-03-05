@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Affiliate PRO\n"
+"POT-Creation-Date: 2016-03-05 21:48+0100\n"
+"PO-Revision-Date: 2016-03-05 21:49+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: affiliate-pro.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: src/affiliate-pro.class.php:88 src/affiliate-pro.class.php:89
+msgid "Programs"
+msgstr "Program"
+
+#: src/affiliate-pro.class.php:96
+msgid "Coupon Codes"
+msgstr "Rabattkoder"
+
+#: src/affiliate-pro.class.php:97
+msgid "Coupons"
+msgstr "Rabattkoder"
+
+#: src/affiliate-pro.class.php:104 src/affiliate-pro.class.php:105
+#: views/earnings.php:2
+msgid "Earnings"
+msgstr "Intjänat"
+
+#: src/affiliate-pro.class.php:118 views/earnings.php:2
+msgid "Affiliate"
+msgstr "Affiliate"
+
+#: src/affiliate-pro.class.php:126
+msgid "Settings"
+msgstr "Inställningar"
+
+#: src/affiliate-pro.class.php:134
+msgid "Integrations"
+msgstr "API Integrationer"
+
+#: src/affiliate-pro.class.php:138
+msgid "Advanced Settings"
+msgstr "Avancerade Inställningar"
+
+#: titan-framework-checker.php:61
+msgid "Titan Framework needs to be installed."
+msgstr "Titan Framework måste installeras för att Affiliate PRO ska fungera."
+
+#: titan-framework-checker.php:64
+msgid "Click here to search for the plugin."
+msgstr "Klicka här för att söka efter pluginet."
+
+#: titan-framework-checker.php:70
+msgid "Titan Framework needs to be activated."
+msgstr "Titan Framework måste aktiveras för att Affiliate PRO ska fungera."
+
+#: titan-framework-checker.php:73
+msgid "Click here to go to the plugins page and activate it."
+msgstr "Klicka här för att gå till “Plugins” och aktivera det."
+
+#: views/earnings.php:3
+msgid "Latest transactions"
+msgstr "Senaste transaktioner"
+
+#: views/earnings.php:8
+msgid "Program"
+msgstr "Program"
+
+#: views/earnings.php:9
+msgid "Category"
+msgstr "Kategori"
+
+#: views/earnings.php:11
+msgid "Compensations"
+msgstr "Ersättningar"
+
+#: views/earnings.php:12
+msgid "Tracking URL"
+msgstr "Spårnings URL"
+
+#. Plugin Name of the plugin/theme
+msgid "Affiliate PRO"
+msgstr "Affiliate PRO"
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://rasmuskjellberg.se"
+msgstr "https://rasmuskjellberg.se"
+
+#. Description of the plugin/theme
+msgid ""
+"Sync your wordpress site with your affiliate data. Adds short links and "
+"displays sales data to your WordPress dashboard. Currently supports: "
+"Adtraction"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Rasmus Kjellberg"
+msgstr ""

@@ -3,8 +3,8 @@ namespace YoungMedia\Affiliate;
 
 
 /**
- * Load Plugin Textdomain
+ * Load plugin text domains 
 */
 function LoadPluginTextdomain() {
-  load_plugin_textdomain( 'ymas', false, YMAS_ROOT_DIR . 'languages' ); 
+  load_plugin_textdomain( 'ymas', false, YMAS_TEXTDOMAIN_PATH); 
 }
