@@ -1,17 +1,19 @@
 <?php
 namespace YoungMedia\Affiliate;
 
+
 /**
  * Plugin Name: Affiliate PRO
  * Plugin URI: https://rasmuskjellberg.se
  * Description: Sync your wordpress site with your affiliate data. Adds short links and displays sales data to your WordPress dashboard. Currently supports: Adtraction
  * Author: Rasmus Kjellberg
  * Author URI: https://rasmuskjellberg.se
- * Tags: affiliate, adtraction, affiliate api
- * Keywords: affiliate, adtraction, affiliates api
- * Version: 1.0
+ * Tags: affiliate, adtraction, adrecord, affiliate api
+ * Keywords: affiliate, adtraction, adrecord, affiliates api
+ * Version: 1.1
  * Textdomain: ymas
- */
+ * Domain Path: /languages
+*/
 
 /**
  * Exit if accessed directly
@@ -39,6 +41,12 @@ require_once('src/affiliate-pro.class.php');
 require_once('src/adtraction.class.php');
 require_once('src/adrecord.class.php');
 require_once('src/double.class.php');
+require_once('src/functions.php');
+
+/**
+ * Load plugin text domains 
+*/
+add_action( 'plugins_loaded', 'YoungMedia\Affiliate\LoadPluginTextdomain' );
 
 /**
  * Initialize plugin 
