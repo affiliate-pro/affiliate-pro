@@ -11,6 +11,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Sync your wordpress site with your affiliate data. Adds short links and displays sales data to your WordPress dashboard. Currently supports: Adtraction
 
+= Adtraction =
+* Program information with short links
+* Listing of coupon codes
+* Earnings & transaction 
+
+= Adrecord =
+* Program information with short links
+* Earnings & transaction 
+
 == Installation ==
 
 1. Upload the entire `affiliate-pro` folder to the `/wp-content/plugins/` directory or download it from Plugins in WordPress Dashboard.
