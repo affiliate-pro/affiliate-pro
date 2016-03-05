@@ -1,7 +1,6 @@
 # Affiliate PRO
 Import affiliate data and statistics to your Wordpress site. 
 
-##### Index
 - [Installation](#installation)
 - [Features](#features)
   - [Upcomings features](#upcoming-features)
