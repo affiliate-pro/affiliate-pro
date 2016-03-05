@@ -11,14 +11,36 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Import affiliate data and statistics to your Wordpress site. 
 
-= Adtraction =
-* Program information with short links
-* Listing of coupon codes
-* Earnings & transaction 
+= Features =
 
-= Adrecord =
-* Program information with short links
-* Earnings & transaction 
+- Imports programs and commissions.
+- Imports coupon codes.
+- Imports earnings & transactions.
+- Supports multiple affiliate networks.
+- Auto-generated short links from tracking urls.
+
+= Upcoming features =
+
+- Better earning reports.
+- Banner rotation widgets.
+- Import Google Analytics data.
+- Auto trigger Google Analytics events.
+
+= Supported affiliate networks =
+
+This plugin currently supports:
+
+- Adrecord
+- Adtraction
+
+*Adtraction*
+- Program information with short links
+- Listing of coupon codes
+- Earnings & transaction 
+
+*Adrecord*
+- Program information with short links
+- Earnings & transaction 
 
 == Installation ==
 
@@ -35,5 +57,5 @@ First release, just to get it live in Wordpress.
 == Frequently Asked Questions ==
 
 = Wich affiliate networks does this plugin support? =
-* Adtraction
-* Adrecord
+- Adtraction
+- Adrecord
