@@ -1,5 +1,5 @@
 # Affiliate PRO
-This plugin syncs your Wordpress site with your affiliate data.
+Import affiliate data and statistics to your Wordpress site. 
 
 ### Installation
 1. Upload the entire 'affiliate-pro' folder to your '/wp-content/plugins/' directory or download it directly from Plugins in WordPress Dashboard.

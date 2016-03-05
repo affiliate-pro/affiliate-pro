@@ -24,7 +24,7 @@ class Affiliate {
 		$ymas->adrecord = new Adrecord();
 		$ymas->adrecord->api = new AdrecordAPI();
 
-		$ymas->double = new Double();
+		//$ymas->double = new Double();
 
 	}
 

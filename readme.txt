@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Sync your wordpress site with your affiliate data. 
+Import affiliate data and statistics to your Wordpress site. 
 
 = Adtraction =
 * Program information with short links
@@ -22,19 +22,17 @@ Sync your wordpress site with your affiliate data.
 
 == Installation ==
 
-1. Upload the entire `affiliate-pro` folder to the `/wp-content/plugins/` directory or download it from Plugins in WordPress Dashboard.
+1. Upload the entire 'affiliate-pro' folder to your '/wp-content/plugins/' directory or download it directly from Plugins in WordPress Dashboard.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Changelog ==
 
 = 1.0 =
-*Release Date - 5 mars 2016*
+*Release Date - 6 mars 2016*
 
-First BETA release.
-
-* Currently supports simple Adtraction API calls.
 
 == Frequently Asked Questions ==
 
 = Wich affiliate networks does this plugin support? =
-Adtraction.
+* Adtraction
+* Adrecord
