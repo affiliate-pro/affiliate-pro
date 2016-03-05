@@ -1,0 +1,66 @@
+#ymas .table-logo {
+    height: 30px;
+    max-width: 100%;
+}
+
+#ymas .logo-column {
+    width: 100px;
+    padding: 5px 0px;
+    text-align: center !important;
+}
+
+#ymas .lang-column {
+    width: 30px;
+    padding: 0px;
+    text-align: center !important;
+}
+
+#ymas .url-column input {
+	width: 100%;
+}
+
+#ymas .clicks-column {
+	width: 100px;
+	text-align: center;
+}
+
+#ymas .category-column {
+	width: 100px;
+}
+
+#ymas td.category-column {
+	font-size: 10px !important;
+}
+
+#ymas td {
+    vertical-align: middle !important;
+}
+
+#ymas table.compensation-table {
+    margin: 0px;
+    padding: 5px 0px;
+    width: 100%;
+}
+
+#ymas table.compensation-table td {
+    padding: 0px;
+    margin: 0px;
+    font-size: 9px;
+}
+
+#ymas table.compensation-table td.right {
+    text-align: right;
+}
+
+#ymas td.url-column input {
+    font-size: 10px !important;
+}
+
+#ymas .earnings-column {
+	text-align: center !important;
+	width: 100px;
+}
+
+#ymas .compensation-column {
+	width: 150px;
+}
