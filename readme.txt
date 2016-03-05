@@ -28,8 +28,9 @@ Import affiliate data and statistics to your Wordpress site.
 == Changelog ==
 
 = 1.0 =
-*Release Date - 6 mars 2016*
+*Release Date - 5 mars 2016*
 
+First release, just to get it live in Wordpress.
 
 == Frequently Asked Questions ==
 
