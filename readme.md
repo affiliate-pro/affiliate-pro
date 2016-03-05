@@ -4,13 +4,11 @@ This plugin syncs your Wordpress site with your affiliate data.
 ### Supported affiliate networks
 
 ![Adtraction Wordpress](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/programs/logos/adtraction.jpg)
-##### Adtraction
 * Program information with short links
 * Listing of coupon codes
 * Earnings & transaction 
 
 ![Adrecord Wordpress](https://raw.githubusercontent.com/affiliate-pro/affiliate-pro/master/static/programs/logos/adrecord.gif)
-##### Adrecord
 * Program information with short links
 * Earnings & transaction 
 
