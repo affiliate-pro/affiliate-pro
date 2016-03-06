@@ -3,7 +3,7 @@ Contributors: rkjellberg
 Tags: affiliate, adtraction, adrecord, affiliate api
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,12 @@ This plugin currently supports:
 3. Connect to your affiliate networks with API tokens.
 
 == Changelog ==
+
+= 1.1.2 =
+*Release Date - 6 mars 2016*
+
+- Bugfix: date sort order in tables
+
 
 = 1.1.1 =
 *Release Date - 6 mars 2016*
