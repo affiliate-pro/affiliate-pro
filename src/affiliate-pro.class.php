@@ -114,8 +114,8 @@ class Affiliate {
 
 	public function RegisterScriptsAndCss() {
 		wp_enqueue_style( 'affiliate-style', YMAS_ASSETS . 'affiliate-style.css');
-		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js');
-		wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+		wp_enqueue_script( 'angular', YMAS_ASSETS . 'js/angular.min.js');
+		wp_enqueue_style( 'font-awesome', YMAS_ASSETS . 'css/font-awesome.min.css');
 		wp_enqueue_script( 'angular-affiliatePro', YMAS_ASSETS . 'affiliatePro.js');
 	}
 
@@ -123,7 +123,7 @@ class Affiliate {
 		$this->admin_dashboard = $this->titan->createAdminPanel( array(
 			'name' => __('Affiliate', 'ymas'),
 			'capability' => '',
-		    'icon' => 'https://cdn3.iconfinder.com/data/icons/woothemesiconset/16/chart.png',
+		    'icon' => YMAS_ASSETS . 'menu_icon.png',
 		));
 	}
 
