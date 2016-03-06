@@ -2,11 +2,7 @@
 namespace YoungMedia\Affiliate;
 
 
-class Double {
-	
-	public function __construct() {
-		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
-	}
+class Double extends Module {
 
 	public function isConfigured() {
 
@@ -21,7 +17,7 @@ class Double {
 		return true;
 	}
 
-	public function RegisterTitanOptions() {
+	public function Options() {
 
 		global $ymas;
 		

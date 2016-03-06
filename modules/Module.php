@@ -13,8 +13,8 @@ class Module {
 
 	public function __construct() {
 
-		if (method_exists($this, 'RegisterOptions')) {
-			add_action(	'tf_create_options', array(&$this, 'RegisterOptions'));
+		if (method_exists($this, 'Options')) {
+			add_action(	'tf_create_options', array(&$this, 'Options'));
 		}
 
 		$this->api = new AdtractionAPI();
@@ -64,21 +64,37 @@ class Module {
 	 * @return array
 	*/
 	public function transactions() {
-
-		/* 
+		
 		return array(
 			array(
-				'name' => '',
-				'transaction' => '',
-				'click_date' => ParseDate(''),
-				'event_date' => ParseDate(''),
-				'commission' => '',
-				'currency' => '',
-				'network' => '',
+				'name' => 'Demo program',
+				'transaction' => 'Demotransaction',
+				'click_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
+				'event_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
+				'commission' => '120',
+				'currency' => 'SEK',
+				'network' => 'Demo Network',
 			),
-		); */
+		);
+	}
+
+	/**
+	 * Options 
+	 * Create admin menu options
+	*/
+	public function Options() {
+
+		global $ymas;
 		
-		return array();
+		$ymas->admin_settings_advanced_tab->createOption( array(
+		    'name' => 'My Unnamed Module',
+		    'type' => 'heading',
+		    'toggle' => true,
+		));
+
+		$ymas->admin_settings_advanced_tab->createOption( array(
+		    'type' => 'save',
+		));
 	}
 
 }

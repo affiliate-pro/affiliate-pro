@@ -104,7 +104,7 @@ class Adtraction extends Module {
 		return true;
 	}
 
-	public function RegisterOptions() {
+	public function Options() {
 
 		global $ymas;
 		
