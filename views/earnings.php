@@ -9,8 +9,8 @@
 			<th><a ng-click="sortBy('name')"><?php _e('Program', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('network')"><?php _e('Network', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('transaction')"><?php _e('Transaction', 'ymas'); ?></a></th>
-			<th><a ng-click="sortBy('click')"><?php _e('Click', 'ymas'); ?></a></th>
-			<th><a ng-click="sortBy('event')"><?php _e('Event', 'ymas'); ?></a></th>
+			<th><a ng-click="sortBy('click_date')"><?php _e('Click', 'ymas'); ?></a></th>
+			<th><a ng-click="sortBy('event_date')"><?php _e('Event', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('commission')"><?php _e('Commission', 'ymas'); ?></a></th>
 		</tr>
 	</thead>
@@ -19,8 +19,8 @@
 			<th><a ng-click="sortBy('name')"><?php _e('Program', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('network')"><?php _e('Network', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('transaction')"><?php _e('Transaction', 'ymas'); ?></a></th>
-			<th><a ng-click="sortBy('click')"><?php _e('Click', 'ymas'); ?></a></th>
-			<th><a ng-click="sortBy('event')"><?php _e('Event', 'ymas'); ?></a></th>
+			<th><a ng-click="sortBy('click_date')"><?php _e('Click', 'ymas'); ?></a></th>
+			<th><a ng-click="sortBy('event_date')"><?php _e('Event', 'ymas'); ?></a></th>
 			<th><a ng-click="sortBy('commission')"><?php _e('Commission', 'ymas'); ?></a></th>
 		</tr>
 	</tfoot>
@@ -29,7 +29,7 @@
 			<td>{{ row.name }}</td>
 			<td>{{ row.network }}</td>
 			<td>{{ row.transaction }}</td>
-			<td>{{ row.click_date | date:'medium'}}</td>
+			<td>{{ row.click_date }}</td>
 			<td>{{ row.event_date }}</td>
 			<td>{{ row.commission }} {{ row.currency }}</td>
 		</tr>
@@ -42,7 +42,7 @@
 <script type="text/javascript">
 affiliatePro.controller('EarningsController', ['$scope', function($scope) {
 
-	$scope.sortType     = 'event'; // set the default sort type
+	$scope.sortType     = 'event_date'; // set the default sort type
 	$scope.sortReverse  = true;  // set the default sort order
 
 	$scope.sortBy = function( sortType ) {
