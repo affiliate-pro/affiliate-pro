@@ -39,7 +39,11 @@ This plugin currently supports:
 
 == Changelog ==
 
+= 1.1.1 =
+
+
 = 1.1 =
+*Release Date - 6 mars 2016*
 
 - Added Angular.js support
 - Added language support

@@ -3,8 +3,8 @@ namespace YoungMedia\Affiliate;
 
 class AdtractionAPI {
 
-	private $from_date = "2013-01-01T15:00:00+0200";
-	private $to_date = "2016-03-03T15:00:00+0200";
+	private $from_date = "2016-01-01T00:00:00+0200";
+	private $to_date = "2016-12-31T23:59:59+0200";
 	
 	private $api_token;
 	private $channelID;
