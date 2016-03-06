@@ -15,21 +15,13 @@
     text-align: center !important;
 }
 
-#ymas .url-column input {
-	width: 100%;
+#ymas .url-column {
+	width: 40%;
 }
 
 #ymas .clicks-column {
 	width: 100px;
 	text-align: center;
-}
-
-#ymas .category-column {
-	width: 100px;
-}
-
-#ymas td.category-column {
-	font-size: 10px !important;
 }
 
 #ymas td {
@@ -58,15 +50,7 @@
 
 #ymas td.url-column input {
     font-size: 10px !important;
-}
-
-#ymas .earnings-column {
-	text-align: center !important;
-	width: 100px;
-}
-
-#ymas .compensation-column {
-	width: 150px;
+    width: 100%;
 }
 
 #ymas table th i.fa.sort {

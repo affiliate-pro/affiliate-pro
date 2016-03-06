@@ -10,6 +10,60 @@ class Adtraction {
 		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
 	}
 
+	public function programs() {
+
+		$output = array();
+
+		$api_response = $this->api->programs();
+
+		foreach ($api_response as $i) {
+
+			if (!isset($i->programName) OR 
+				!isset($i->category) OR
+				!isset($i->trackingURL))
+				continue;
+
+			$output[] = array(
+				'name' => trim($i->programName),
+				'category' => trim($i->category),
+				'tracking_url' => trim($i->trackingURL),
+				'network' => 'Adtraction',
+			);
+		}
+
+		return $output;
+	}
+
+	public function transactions() {
+
+		$output = array();
+
+		$api_response = $this->api->transactions();
+
+		foreach ($api_response as $i) {
+
+			if (!isset($i->programName) OR 
+				!isset($i->transactionName) OR
+				!isset($i->clickDate) OR
+				!isset($i->transactionDate) OR
+				!isset($i->commission) OR
+				!isset($i->currency))
+				continue;
+
+			$output[] = array(
+				'name' => $i->programName,
+				'transaction' => $i->transactionName,
+				'click_date' => ParseDate($i->clickDate),
+				'event_date' => ParseDate($i->transactionDate),
+				'commission' => $i->commission,
+				'currency' => $i->currency,
+				'network' => 'Adtraction',
+			);
+		}
+
+		return $output;
+	}
+
 	public function isConfigured() {
 
 		global $ymas;

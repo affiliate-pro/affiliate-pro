@@ -51,29 +51,24 @@ class AdtractionAPI {
 		$payload = json_encode($post);
 
 		$payload_md5 = md5($payload);
-
-		//if ( false === ( $data = get_transient( 'ymas_api_req_' . $payload_md5 ) ) ) {
 	     
-	     	$handle = curl_init(); 
-			curl_setopt($handle, CURLOPT_URL, $url);
-			curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($handle, CURLOPT_POST, true);
-			curl_setopt($handle, CURLOPT_POSTFIELDS, $payload);
-			curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
-		 
-			$data = curl_exec($handle);
-		 
-			if ($data === false) {
-				$info = curl_getinfo($handle);
-				curl_close($handle);
-				die('error occurred during curl exec. Additional info: ' . var_export($info));
-			}
-		 
+     	$handle = curl_init(); 
+		curl_setopt($handle, CURLOPT_URL, $url);
+		curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($handle, CURLOPT_POST, true);
+		curl_setopt($handle, CURLOPT_POSTFIELDS, $payload);
+		curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
+	 
+		$data = curl_exec($handle);
+	 
+		if ($data === false) {
+			$info = curl_getinfo($handle);
 			curl_close($handle);
-
-	    	//set_transient( 'ymas_api_req_' . $payload_md5, $data, 600 );
-		//}
+			die('error occurred during curl exec. Additional info: ' . var_export($info));
+		}
+	 
+		curl_close($handle);
 	 
 		return json_decode($data);
 	}

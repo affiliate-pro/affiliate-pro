@@ -49,6 +49,16 @@ This plugin currently supports:
 
 == Changelog ==
 
+= 1.1 =
+
+- Added Angular.js support
+- Added language support
+- Translated earnings page
+- Converted earnings page to Angular.js
+- Combined all transaction tables into one.
+- Converted programs page to Angular.js
+- Combined all programs tables into one.
+
 = 1.0 =
 *Release Date - 5 mars 2016*
 

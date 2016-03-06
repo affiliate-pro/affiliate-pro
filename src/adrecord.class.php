@@ -8,6 +8,61 @@ class Adrecord {
 		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
 	}
 
+
+	public function programs() {
+
+		$output = array();
+
+		$api_response = $this->api->programs();
+
+		foreach ($api_response as $i) {
+
+			if (!isset($i->program->name))
+				continue;
+
+			$tracking_url = $this->tracking_url($i->program->id);
+
+			$output[] = array(
+				'name' => trim($i->program->name),
+				'category' => '-',
+				'tracking_url' => $tracking_url,
+				'network' => 'Adrecord',
+			);
+		}
+
+		return $output;
+	}
+
+	public function transactions() {
+
+		$output = array();
+
+		$api_response = $this->api->transactions();
+
+		foreach ($api_response as $i) {
+
+			if (!isset($i->program->name) OR 
+				!isset($i->commissionName) OR
+				!isset($i->type) OR
+				!isset($i->click) OR
+				!isset($i->changes[0]->date) OR
+				!isset($i->commission))
+				continue;
+
+			$output[] = array(
+				'name' => $i->program->name,
+				'transaction' => $i->commissionName . ' - ' . $i->type,
+				'click_date' => ParseDate($i->click),
+				'event_date' => ParseDate($i->changes[0]->date),
+				'commission' => $i->commission / 100,
+				'currency' => 'SEK',
+				'network' => 'Adrecord',
+			);
+		}
+
+		return $output;
+	}
+
 	public function isConfigured() {
 
 		global $ymas;

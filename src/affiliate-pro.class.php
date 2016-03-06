@@ -18,17 +18,17 @@ class Affiliate {
 		global $ymas;
 		$ymas = new Affiliate();
 		$ymas->titan = \TitanFramework::getInstance( 'ymas' );
+		
 		$ymas->adtraction = new Adtraction();
 		$ymas->adtraction->api = new AdtractionAPI();
 
 		$ymas->adrecord = new Adrecord();
 		$ymas->adrecord->api = new AdrecordAPI();
-
+		
+		//$ymas->double = new Double();
 
 		$ymas->ajax = new Ajax\Ajax();
-		$ymas->ajax->earnings = new Ajax\Earnings();
 
-		//$ymas->double = new Double();
 
 	}
 
@@ -172,10 +172,7 @@ class Affiliate {
 
 	public function LoadViewPrograms() {
 		global $ymas;
-		$this->LoadView('links', array(
-			'adtraction_programs' => $ymas->adtraction->api->programs(),
-			'adrecord_programs' => $ymas->adrecord->api->programs(),
-		));
+		$this->LoadView('programs');
 	}
 
 	public function LoadViewCoupon() {
@@ -187,18 +184,13 @@ class Affiliate {
 
 	public function LoadViewEarnings() {
 		global $ymas;
-		$this->LoadView('earnings', array(
-			'adtraction_transactions' => $ymas->adtraction->api->transactions(),
-			'adrecord_transactions' => $ymas->adrecord->api->transactions(),
-		));
+		$this->LoadView('earnings');
 	}
 
-	public function LoadView( $view_name, $params ) {
+	public function LoadView( $view_name, $params = array() ) {
 
 		global $ymas;
 		extract($params);
-
-		$slug = $this->getSlug();
 
 		$titan = \TitanFramework::getInstance( 'ymas' );
 

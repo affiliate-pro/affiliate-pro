@@ -58,6 +58,9 @@ affiliatePro.controller('EarningsController', ['$scope', function($scope) {
 	jQuery(document).ready(function($) {
 		var data = {'action': 'earnings_list'};
 		jQuery.post(ajaxurl, data, function(response) {
+
+			console.log(response);
+			
 			if (response.status == 'ok') {
 				$scope.$apply(function () {
 					$scope.transactions = response.results;
