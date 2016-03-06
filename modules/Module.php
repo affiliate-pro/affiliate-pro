@@ -32,22 +32,14 @@ class Module {
 	 * @return array
 	*/
 	public function programs() {
-
-		/* 
+		
 		return array(
 			array(
-				'name' => '', 
-				'category' => '', 
-				'tracking_url' => '', 
-				'network' => ''),
-			array(
-				'name' => '', 
-				'category' => '', 
-				'tracking_url' => '', 
-				'network' => ''),
-		); */
-		
-		return array();
+				'name' => 'Demo Program', 
+				'category' => 'Demostration Services', 
+				'tracking_url' => 'http://johndoe.com', 
+				'network' => 'Demo Network'),
+		);
 	}
 
 	/**
