@@ -40,6 +40,12 @@ This plugin currently supports:
 1. Upload the entire 'affiliate-pro' folder to your '/wp-content/plugins/' directory or download it directly from Plugins in WordPress Dashboard.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 
+== Screenshots ==
+
+1. Get all of your channel income listed together in one page
+2. Quick access to all of your channel approved programs and affiliate links.
+3. Connect to your affiliate networks with API tokens.
+
 == Changelog ==
 
 = 1.1.1 =
