@@ -21,6 +21,9 @@
 				<input type="text" disabled ng-model="row.tracking_url">
 			</td>
 		</tr>
+		<tr ng-hide="programs.length">
+			<td colspan="5"><?php _e('Sorry, but you have no programs for this channel yet.', 'ymas'); ?></td>
+		</tr>
 	</tbody>
 	</table>
 </div>
