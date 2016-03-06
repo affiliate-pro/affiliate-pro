@@ -6,8 +6,8 @@ class Adrecord {
 	
 	public function __construct() {
 		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
+		$this->api = new AdrecordAPI();
 	}
-
 
 	public function programs() {
 

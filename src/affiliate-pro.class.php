@@ -13,25 +13,6 @@ class Affiliate {
 
 	public $slug;
 
-	public static function InitAffiliatePlugin() {
-
-		global $ymas;
-		$ymas = new Affiliate();
-		$ymas->titan = \TitanFramework::getInstance( 'ymas' );
-		
-		$ymas->adtraction = new Adtraction();
-		$ymas->adtraction->api = new AdtractionAPI();
-
-		$ymas->adrecord = new Adrecord();
-		$ymas->adrecord->api = new AdrecordAPI();
-		
-		//$ymas->double = new Double();
-
-		$ymas->ajax = new Ajax\Ajax();
-
-
-	}
-
 	public function __construct() {
 
 		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
@@ -45,6 +26,18 @@ class Affiliate {
 		add_action( 'tf_create_options', array(&$this, 'RegisterTitanSettingsTabs'));
 		add_action(	'tf_create_options', array(&$this, 'RegisterAdvancedSettingsOptions'));
 
+		$this->titan = \TitanFramework::getInstance( 'ymas' );
+		$this->ajax = new Ajax\Ajax();
+
+		$this->adtraction = new Adtraction();
+		$this->adrecord = new Adrecord();
+		$this->double = new Double();
+
+	}
+
+	public static function InitAffiliatePlugin() {
+		global $ymas;
+		$ymas = new Affiliate();
 	}
 
 	public function RedirectToLocation( $program_slug ) {
