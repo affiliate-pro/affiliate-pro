@@ -3,7 +3,7 @@ Contributors: rkjellberg
 Tags: affiliate, adtraction, adrecord, affiliate api
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Import affiliate data and statistics to your Wordpress site. 
 More info and documentation can be found at our official website:
 
+- Official Website:
 https://affiliate-pro.github.io
+
+- Github REPO:
+https://github.com/affiliate-pro/affiliate-pro
 
 = Supported affiliate networks =
 This plugin currently supports:
