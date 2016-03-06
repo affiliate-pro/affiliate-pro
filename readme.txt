@@ -9,7 +9,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Import affiliate data and statistics to your Wordpress site. 
+Import affiliate data and statistics to your Wordpress site. More info at https://affiliate-pro.github.io
+
+= Supported affiliate networks =
+This plugin currently supports:
+
+- Adrecord
+- Adtraction
 
 = Features =
 
@@ -25,22 +31,6 @@ Import affiliate data and statistics to your Wordpress site.
 - Banner rotation widgets.
 - Import Google Analytics data.
 - Auto trigger Google Analytics events.
-
-= Supported affiliate networks =
-
-This plugin currently supports:
-
-- Adrecord
-- Adtraction
-
-*Adtraction*
-- Program information with short links
-- Listing of coupon codes
-- Earnings & transaction 
-
-*Adrecord*
-- Program information with short links
-- Earnings & transaction 
 
 == Installation ==
 

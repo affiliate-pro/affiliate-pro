@@ -4,7 +4,8 @@ namespace YoungMedia\Affiliate;
 
 /**
  * Plugin Name: Affiliate PRO
- * Description: Import affiliate data and statistics to your Wordpress site. Currently supports Adtraction & Adrecord.
+ * Description: Import affiliate data and statistics to your Wordpress site. More info at: https://affiliate-pro.github.io
+ * Plugin URL: https://affiliate-pro.github.io/
  * Author: Rasmus Kjellberg
  * Author URI: https://rasmuskjellberg.se
  * Tags: affiliate, adtraction, adrecord, affiliate api
