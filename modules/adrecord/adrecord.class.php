@@ -2,6 +2,16 @@
 namespace YoungMedia\Affiliate;
 
 
+/**
+ * Require API class
+*/
+require_once('adrecord.api.php');
+
+
+/**
+ * Adrecord Module
+ * Connection with Adtraction API
+*/
 class Adrecord {
 	
 	public function __construct() {
@@ -9,6 +19,16 @@ class Adrecord {
 		$this->api = new AdrecordAPI();
 	}
 
+	/**
+	 * Connect with service API and 
+	 * return an array of programs.
+	 * 
+	 * @string: name
+	 * @string: category
+	 * @string: tracking_url
+	 * @string: network 
+	 * @return array
+	*/
 	public function programs() {
 
 		$output = array();
@@ -33,6 +53,19 @@ class Adrecord {
 		return $output;
 	}
 
+	/**
+	 * Connect with service API and 
+	 * return an array of transactions.
+	 * 
+	 * @string: name
+	 * @int: transaction
+	 * @date: click_date
+	 * @date: event_date
+	 * @int: commission
+	 * @string: currency
+	 * @string: network 
+	 * @return array
+	*/
 	public function transactions() {
 
 		$output = array();

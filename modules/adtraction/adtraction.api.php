@@ -9,7 +9,6 @@ class AdtractionAPI {
 	private $api_token;
 	private $channelID;
 
-
 	public function setApiKeys($api_token, $channelID) {
 		$this->api_token = $api_token;
 		$this->channelID = $channelID;

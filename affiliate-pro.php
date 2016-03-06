@@ -25,18 +25,17 @@ if ( ! defined( 'ABSPATH' ) )
  * Require plugin source files
 */
 require_once('src/affiliate-pro.class.php');
-require_once('src/double.class.php');
 require_once('src/functions.php');
 require_once('src/ajax.class.php');
 
 /**
  * Require modules
 */
-require_once('modules/adtraction/adtraction.class.php');
-require_once('modules/adtraction/adtraction.api.php');
+require_once('modules/Module.php');
 
+require_once('modules/adtraction/adtraction.class.php');
 require_once('modules/adrecord/adrecord.class.php');
-require_once('modules/adrecord/adrecord.api.php');
+require_once('modules/double/double.class.php');
 
 /** 
  * Define default constants

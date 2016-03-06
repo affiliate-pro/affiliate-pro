@@ -2,15 +2,28 @@
 namespace YoungMedia\Affiliate;
 
 
-class Adtraction {
+/**
+ * Require API class
+*/
+require_once('adtraction.api.php');
 
-	public $api; 
 
-	public function __construct() {
-		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
-		$this->api = new AdtractionAPI();
-	}
+/**
+ * Adtraction Module
+ * Connection with Adtraction API
+*/
+class Adtraction extends Module {
 
+	/**
+	 * Connect with service API and 
+	 * return an array of programs.
+	 * 
+	 * @string: name
+	 * @string: category
+	 * @string: tracking_url
+	 * @string: network 
+	 * @return array
+	*/
 	public function programs() {
 
 		$output = array();
@@ -35,6 +48,19 @@ class Adtraction {
 		return $output;
 	}
 
+	/**
+	 * Connect with service API and 
+	 * return an array of transactions.
+	 * 
+	 * @string: name
+	 * @int: transaction
+	 * @date: click_date
+	 * @date: event_date
+	 * @int: commission
+	 * @string: currency
+	 * @string: network 
+	 * @return array
+	*/
 	public function transactions() {
 
 		$output = array();
@@ -78,7 +104,7 @@ class Adtraction {
 		return true;
 	}
 
-	public function RegisterTitanOptions() {
+	public function RegisterOptions() {
 
 		global $ymas;
 		
