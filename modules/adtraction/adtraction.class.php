@@ -1,6 +1,6 @@
 <?php
 namespace YoungMedia\Affiliate;
-
+use YoungMedia\Affiliate\Modules;
 
 /**
  * Require API class
@@ -12,7 +12,7 @@ require_once('adtraction.api.php');
  * Adtraction Module
  * Connection with Adtraction API
 */
-class Adtraction extends Module {
+class Adtraction extends AffiliateNetwork {
 
 	/**
 	 * Connect with service API and 
@@ -65,7 +65,10 @@ class Adtraction extends Module {
 
 		$output = array();
 
-		$api_response = $this->api->transactions();
+		$from_date = $this->dateToISO8601($this->from_date);
+		$to_date = $this->dateToISO8601($this->to_date);
+
+		$api_response = $this->api->transactions($from_date, $to_date);
 
 		foreach ($api_response as $i) {
 

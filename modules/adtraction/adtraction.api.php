@@ -3,9 +3,6 @@ namespace YoungMedia\Affiliate;
 
 class AdtractionAPI {
 
-	private $from_date = "2016-01-01T00:00:00+0200";
-	private $to_date = "2016-12-31T23:59:59+0200";
-	
 	private $api_token;
 	private $channelID;
 
@@ -27,11 +24,11 @@ class AdtractionAPI {
 		));
 	}
 
-	public function transactions() {
+	public function transactions( $from_date, $to_date ) {
 		return $this->getRequest('transactions', array(
 			'channelId' => $this->channelID,
-			'fromDate' => $this->from_date,
-			'toDate' => $this->to_date,
+			'fromDate' => $from_date,
+			'toDate' => $to_date,
 		));
 	}
 

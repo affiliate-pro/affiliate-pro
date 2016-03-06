@@ -21,35 +21,54 @@ class Affiliate {
 		if (!class_exists('\TitanFramework')) 
 			return;
 
-		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
+		/**
+		 * Prepare wordpress hooks
+		*/
 		add_action( 'init', array(&$this, 'RegisterRewriteRules') );
-
+		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
 		add_action( 'admin_menu', array(&$this, 'RegisterMenus'));
 		add_action( 'admin_enqueue_scripts', array(&$this, 'RegisterScriptsAndCss') );
 
+
+		/**
+		 * Create option pages (using Titan Framework)
+		*/
 		add_action(	'tf_create_options', array(&$this, 'RegisterTitanDashboard'));
 		add_action( 'tf_create_options', array(&$this, 'RegisterTitanSettingsPages'));
 		add_action( 'tf_create_options', array(&$this, 'RegisterTitanSettingsTabs'));
 		add_action(	'tf_create_options', array(&$this, 'RegisterAdvancedSettingsOptions'));
 
-		$this->titan = \TitanFramework::getInstance( 'ymas' );
-		$this->ajax = new Ajax\Ajax();
 
+		/**
+		 * Create a global instance of titan framework.
+		*/
+		$this->titan = \TitanFramework::getInstance( 'ymas' );
+
+
+		/**
+		 * Load modules. This should be done some other way.
+		 * Probably automatically without beeing a security issue.
+		*/
 		$this->adtraction = new Adtraction();
 		$this->adrecord = new Adrecord();
-		//$this->double = new Double();
+		$this->double = new Double();
 
 	}
 
+	/**
+	 * Init Affiliate PRO.
+	 * Create a new Affiliate instance and make it global.
+	*/
 	public static function InitAffiliatePlugin() {
 		global $ymas;
 		$ymas = new Affiliate();
 	}
 
-	public function RedirectToLocation( $program_slug ) {
 
-	}
-
+	/**
+	 * Register Rewrite Rules
+	 * Create rewrite rule for affiliate short links.
+	*/
 	public function RegisterRewriteRules( $slug = 'out' ) {
 
 		add_rewrite_rule(
@@ -61,6 +80,11 @@ class Affiliate {
 		flush_rewrite_rules();
 	}
 
+	/**
+	 * Register API keys
+	 * Register api keys for each plugin.
+	 * @todo: This must be moved to AffiliateNetwork class.
+	*/
 	public function RegisterApiKeys() {
 
 		global $ymas;
@@ -82,10 +106,11 @@ class Affiliate {
 		$ymas->adrecord->api->setApiKeys($api_token, $channelID);
 	}	
 
+	/**
+	 * Register Menus
+	 * Register admin menu navigations
+	*/
 	public function RegisterMenus() {
-
-		if ($this->adtraction->isConfigured() !== true)
-			return; // @todo: This should check for every program.
 
 		\add_submenu_page('affiliate',
 	        'Affiliate > ' . __('Programs', 'ymas'),
@@ -112,7 +137,15 @@ class Affiliate {
         );
 	}
 
-	public function RegisterScriptsAndCss() {
+	/**
+	 * Register Scripts and CSS
+	 * Register Scripts and CSS on Wordpress pages
+	*/
+	public function RegisterScriptsAndCss($hook) {
+
+		if (strpos($hook, 'affiliate_page_affiliate') === false)
+			return;
+
 		wp_enqueue_style( 'affiliate-style', YMAS_ASSETS . 'affiliate-style.css');
 		wp_enqueue_script( 'angular', YMAS_ASSETS . 'js/angular.min.js');
 		wp_enqueue_style( 'font-awesome', YMAS_ASSETS . 'css/font-awesome.min.css');

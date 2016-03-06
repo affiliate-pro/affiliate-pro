@@ -10,7 +10,7 @@ namespace YoungMedia\Affiliate;
  * Author URI: https://rasmuskjellberg.se
  * Tags: affiliate, adtraction, adrecord, affiliate api
  * Keywords: affiliate, adtraction, adrecord, affiliates api
- * Version: 1.1.2
+ * Version: 1.1.3
  * Textdomain: ymas
  * Domain Path: /languages
 */
@@ -35,6 +35,7 @@ require_once('src/ajax.class.php');
  * Require modules
 */
 require_once('modules/Module.php');
+require_once('modules/AffiliateNetwork.php');
 require_once('modules/adtraction/adtraction.class.php');
 require_once('modules/adrecord/adrecord.class.php');
 require_once('modules/double/double.class.php');

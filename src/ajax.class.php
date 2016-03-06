@@ -2,6 +2,7 @@
 namespace YoungMedia\Affiliate\Ajax;
 
 class Ajax {
+	
 	public $earnings;
 
 	public function __construct() {
@@ -43,4 +44,4 @@ class Ajax {
 		));
 	}
 
-} 
+} new Ajax();

@@ -22,71 +22,12 @@ class Module {
 	}
 
 	/**
-	 * Connect with service API and 
-	 * return an array of programs.
-	 * 
-	 * @string: name
-	 * @string: category
-	 * @string: tracking_url
-	 * @string: network 
-	 * @return array
+	 * Convert date into ISO8601 format
+	 * @return date
 	*/
-	public function programs() {
-		
-		return array(
-			array(
-				'name' => 'Demo Program', 
-				'category' => 'Demostration Services', 
-				'tracking_url' => 'http://johndoe.com', 
-				'network' => 'Demo Network'),
-		);
-	}
-
-	/**
-	 * Connect with service API and 
-	 * return an array of transactions.
-	 * 
-	 * @string: name
-	 * @int: transaction
-	 * @date: click_date
-	 * @date: event_date
-	 * @int: commission
-	 * @string: currency
-	 * @string: network 
-	 * @return array
-	*/
-	public function transactions() {
-		
-		return array(
-			array(
-				'name' => 'Demo program',
-				'transaction' => 'Demotransaction',
-				'click_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
-				'event_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
-				'commission' => '120',
-				'currency' => 'SEK',
-				'network' => 'Demo Network',
-			),
-		);
-	}
-
-	/**
-	 * Options 
-	 * Create admin menu options
-	*/
-	public function Options() {
-
-		global $ymas;
-		
-		$ymas->admin_settings_advanced_tab->createOption( array(
-		    'name' => 'My Unnamed Module',
-		    'type' => 'heading',
-		    'toggle' => true,
-		));
-
-		$ymas->admin_settings_advanced_tab->createOption( array(
-		    'type' => 'save',
-		));
+	public function dateToISO8601( $input_date ) {
+		$date = new \DateTime($input_date);
+		return $date->format(\DateTime::ISO8601);
 	}
 
 }
