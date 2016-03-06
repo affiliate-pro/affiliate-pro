@@ -193,8 +193,10 @@ class Affiliate {
 	}
 
 	public function getSlug() {
-
-		if (!empty($this->titan->getOption('ymas_permalink_slug')))
+		
+		@$slug = $this->titan->getOption('ymas_permalink_slug');
+		
+		if (isset($slug) AND !empty($slug))
 			$this->slug = $this->titan->getOption('ymas_permalink_slug');
 		else
 			$this->slug = 'out';
