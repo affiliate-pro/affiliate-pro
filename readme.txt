@@ -9,7 +9,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Import affiliate data and statistics to your Wordpress site. More info at https://affiliate-pro.github.io
+Import affiliate data and statistics to your Wordpress site. 
+More info and documentation can be found at our official website:
+
+https://affiliate-pro.github.io
 
 = Supported affiliate networks =
 This plugin currently supports:
@@ -40,7 +43,10 @@ This plugin currently supports:
 == Changelog ==
 
 = 1.1.1 =
+*Release Date - 6 mars 2016*
 
+- Small design fixes (CSS)
+- Added plugin page assets and description.
 
 = 1.1 =
 *Release Date - 6 mars 2016*

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Affiliate PRO\n"
-"POT-Creation-Date: 2016-03-06 01:44+0100\n"
-"PO-Revision-Date: 2016-03-06 01:44+0100\n"
+"POT-Creation-Date: 2016-03-06 19:04+0100\n"
+"PO-Revision-Date: 2016-03-06 19:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,37 +20,37 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: src/affiliate-pro.class.php:93 src/affiliate-pro.class.php:94
+#: src/affiliate-pro.class.php:85 src/affiliate-pro.class.php:86
 #: views/programs.php:2
 msgid "Programs"
 msgstr "Program"
 
-#: src/affiliate-pro.class.php:101
+#: src/affiliate-pro.class.php:93
 msgid "Coupon Codes"
 msgstr "Rabattkoder"
 
-#: src/affiliate-pro.class.php:102
+#: src/affiliate-pro.class.php:94
 msgid "Coupons"
 msgstr "Rabattkoder"
 
-#: src/affiliate-pro.class.php:109 src/affiliate-pro.class.php:110
+#: src/affiliate-pro.class.php:101 src/affiliate-pro.class.php:102
 #: views/earnings.php:2
 msgid "Earnings"
 msgstr "Intjänat"
 
-#: src/affiliate-pro.class.php:126 views/earnings.php:2 views/programs.php:2
+#: src/affiliate-pro.class.php:118 views/earnings.php:2 views/programs.php:2
 msgid "Affiliate"
 msgstr "Affiliate"
 
-#: src/affiliate-pro.class.php:134
+#: src/affiliate-pro.class.php:126
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/affiliate-pro.class.php:143
+#: src/affiliate-pro.class.php:135
 msgid "Integrations"
 msgstr "API Integrationer"
 
-#: src/affiliate-pro.class.php:148
+#: src/affiliate-pro.class.php:140
 msgid "Advanced Settings"
 msgstr "Avancerade Inställningar"
 
@@ -120,14 +120,15 @@ msgstr "Affiliate PRO"
 
 #. Description of the plugin/theme
 msgid ""
-"Sync your wordpress site with your affiliate data. Adds short links and "
-"displays sales data to your WordPress dashboard. Currently supports: "
-"Adtraction"
+"Import affiliate data and statistics to your Wordpress site. More info at: "
+"https://affiliate-pro.github.io"
 msgstr ""
+"Importera affiliate data och statistik till din WordPress webbplats. Mer "
+"info: https://affiliate-pro.github.io"
 
 #. Author of the plugin/theme
 msgid "Rasmus Kjellberg"
-msgstr ""
+msgstr "Rasmus Kjellberg"
 
 #. Author URI of the plugin/theme
 msgid "https://rasmuskjellberg.se"
