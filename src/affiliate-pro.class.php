@@ -15,6 +15,12 @@ class Affiliate {
 
 	public function __construct() {
 
+		/**
+		 * Check for required frameworks
+		*/
+		if (!class_exists('\TitanFramework')) 
+			return;
+
 		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
 		add_action( 'init', array(&$this, 'RegisterRewriteRules') );
 
