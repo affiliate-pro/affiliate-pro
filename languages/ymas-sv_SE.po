@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Affiliate PRO\n"
-"POT-Creation-Date: 2016-03-05 21:48+0100\n"
-"PO-Revision-Date: 2016-03-05 21:49+0100\n"
+"POT-Creation-Date: 2016-03-06 00:55+0100\n"
+"PO-Revision-Date: 2016-03-06 00:55+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,36 +20,36 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: src/affiliate-pro.class.php:88 src/affiliate-pro.class.php:89
+#: src/affiliate-pro.class.php:92 src/affiliate-pro.class.php:93
 msgid "Programs"
 msgstr "Program"
 
-#: src/affiliate-pro.class.php:96
+#: src/affiliate-pro.class.php:100
 msgid "Coupon Codes"
 msgstr "Rabattkoder"
 
-#: src/affiliate-pro.class.php:97
+#: src/affiliate-pro.class.php:101
 msgid "Coupons"
 msgstr "Rabattkoder"
 
-#: src/affiliate-pro.class.php:104 src/affiliate-pro.class.php:105
+#: src/affiliate-pro.class.php:108 src/affiliate-pro.class.php:109
 #: views/earnings.php:2
 msgid "Earnings"
 msgstr "Intjänat"
 
-#: src/affiliate-pro.class.php:118 views/earnings.php:2
+#: src/affiliate-pro.class.php:125 views/earnings.php:2
 msgid "Affiliate"
 msgstr "Affiliate"
 
-#: src/affiliate-pro.class.php:126
+#: src/affiliate-pro.class.php:133
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/affiliate-pro.class.php:134
+#: src/affiliate-pro.class.php:142
 msgid "Integrations"
 msgstr "API Integrationer"
 
-#: src/affiliate-pro.class.php:138
+#: src/affiliate-pro.class.php:147
 msgid "Advanced Settings"
 msgstr "Avancerade Inställningar"
 
@@ -69,25 +69,33 @@ msgstr "Titan Framework måste aktiveras för att Affiliate PRO ska fungera."
 msgid "Click here to go to the plugins page and activate it."
 msgstr "Klicka här för att gå till “Plugins” och aktivera det."
 
-#: views/earnings.php:3
+#: views/earnings.php:4
 msgid "Latest transactions"
 msgstr "Senaste transaktioner"
 
-#: views/earnings.php:8
+#: views/earnings.php:9 views/earnings.php:18
 msgid "Program"
 msgstr "Program"
 
-#: views/earnings.php:9
-msgid "Category"
-msgstr "Kategori"
+#: views/earnings.php:10 views/earnings.php:19
+msgid "Transaction"
+msgstr "Transaktionstyp"
 
-#: views/earnings.php:11
-msgid "Compensations"
-msgstr "Ersättningar"
+#: views/earnings.php:11 views/earnings.php:20
+msgid "Click"
+msgstr "Klick"
 
-#: views/earnings.php:12
-msgid "Tracking URL"
-msgstr "Spårnings URL"
+#: views/earnings.php:12 views/earnings.php:21
+msgid "Event"
+msgstr "Event"
+
+#: views/earnings.php:13 views/earnings.php:22
+msgid "Commission"
+msgstr "Ersättning"
+
+#: views/earnings.php:34
+msgid "Sorry, but you have no transactions for this channel yet."
+msgstr "Du har inga transaktioner ännu."
 
 #. Plugin Name of the plugin/theme
 msgid "Affiliate PRO"
@@ -108,3 +116,12 @@ msgstr ""
 #. Author of the plugin/theme
 msgid "Rasmus Kjellberg"
 msgstr ""
+
+#~ msgid "Category"
+#~ msgstr "Kategori"
+
+#~ msgid "Compensations"
+#~ msgstr "Ersättningar"
+
+#~ msgid "Tracking URL"
+#~ msgstr "Spårnings URL"

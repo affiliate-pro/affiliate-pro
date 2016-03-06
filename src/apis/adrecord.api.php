@@ -30,7 +30,7 @@ class AdrecordAPI {
 	 
 		$payload_md5 = md5($url);
 
-		if ( false === ( $data = get_transient( 'ymas_api_req_' . $payload_md5 ) ) ) {
+		//if ( false === ( $data = get_transient( 'ymas_api_req_' . $payload_md5 ) ) ) {
 	     
 	     	$handle = curl_init(); 
 			curl_setopt($handle, CURLOPT_URL, $url);
@@ -47,8 +47,8 @@ class AdrecordAPI {
 		 
 			curl_close($handle);
 
-	    	set_transient( 'ymas_api_req_' . $payload_md5, $data, 600 );
-		}
+	    	//set_transient( 'ymas_api_req_' . $payload_md5, $data, 600 );
+		//}
 	 
 		return json_decode($data);
 	}

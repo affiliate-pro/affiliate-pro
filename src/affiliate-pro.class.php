@@ -24,6 +24,10 @@ class Affiliate {
 		$ymas->adrecord = new Adrecord();
 		$ymas->adrecord->api = new AdrecordAPI();
 
+
+		$ymas->ajax = new Ajax\Ajax();
+		$ymas->ajax->earnings = new Ajax\Earnings();
+
 		//$ymas->double = new Double();
 
 	}
@@ -111,6 +115,9 @@ class Affiliate {
 
 	public function RegisterScriptsAndCss() {
 		wp_enqueue_style( 'affiliate-style', YMAS_ASSETS . 'affiliate-style.css');
+		wp_enqueue_script( 'angular', '//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js');
+		wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+		wp_enqueue_script( 'angular-affiliatePro', YMAS_ASSETS . 'affiliatePro.js');
 	}
 
 	public function RegisterTitanDashboard() {
@@ -195,7 +202,9 @@ class Affiliate {
 
 		$titan = \TitanFramework::getInstance( 'ymas' );
 
+		echo '<div ng-app="affiliatePro" id="ng-app">';
 		require( YMAS_ROOT_DIR . 'views/' . $view_name . '.php');
+		echo '</div>';
 	}
 
 	public function getSlug() {

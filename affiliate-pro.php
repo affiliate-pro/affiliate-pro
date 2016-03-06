@@ -33,6 +33,11 @@ require_once('src/adrecord.class.php');
 require_once('src/double.class.php');
 require_once('src/functions.php');
 
+/**
+ * Require plugin source files (ajax)
+*/
+require_once('src/ajax/ajax.php');
+require_once('src/ajax/earnings.ajax.php');
 
 /** 
  * Define default constants
