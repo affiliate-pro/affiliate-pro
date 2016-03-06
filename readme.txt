@@ -52,7 +52,7 @@ This plugin currently supports:
 *Release Date - 6 mars 2016*
 
 - Bugfix: date sort order in tables
-
+- Added screenshots to plugin page
 
 = 1.1.1 =
 *Release Date - 6 mars 2016*
