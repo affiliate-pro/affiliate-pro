@@ -31,7 +31,7 @@ class Affiliate {
 
 		$this->adtraction = new Adtraction();
 		$this->adrecord = new Adrecord();
-		$this->double = new Double();
+		//$this->double = new Double();
 
 	}
 
