@@ -4,12 +4,12 @@ namespace YoungMedia\Affiliate;
 
 /**
  * Plugin Name: Affiliate PRO
- * Description: Sync your wordpress site with your affiliate data. Adds short links and displays sales data to your WordPress dashboard. Currently supports: Adtraction
+ * Description: Import affiliate data and statistics to your Wordpress site. Currently supports Adtraction & Adrecord.
  * Author: Rasmus Kjellberg
  * Author URI: https://rasmuskjellberg.se
  * Tags: affiliate, adtraction, adrecord, affiliate api
  * Keywords: affiliate, adtraction, adrecord, affiliates api
- * Version: 1.1
+ * Version: 1.1.1
  * Textdomain: ymas
  * Domain Path: /languages
 */
