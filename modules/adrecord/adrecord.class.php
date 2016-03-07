@@ -114,10 +114,6 @@ class Adrecord extends AffiliateNetwork {
 		return "http://click.adrecord.com?c={$channel_id}&p={$program_id}";
 	}
 
-	public function program ($program_id) {
-		return $this->getRequest("programs/{$program_id}")->result;
-	}
-
 	public function getRequest( $command ) {
 
 		$api_key = $this->api_token;

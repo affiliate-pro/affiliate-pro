@@ -149,8 +149,8 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 
 		global $ymas;
 		
-		$api_token = $ymas->titan->getOption( $slug . '_api_token');
-		$channelID = $ymas->titan->getOption( $slug . '_channel_id');
+		$api_token = $ymas->titan->getOption( $this->slug . '_api_token');
+		$channelID = $ymas->titan->getOption( $this->slug . '_channel_id');
 		
 		if (empty($api_token) OR empty($channelID))
 			return false;		

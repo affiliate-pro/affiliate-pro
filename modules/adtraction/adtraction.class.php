@@ -124,8 +124,6 @@ class Adtraction extends AffiliateNetwork {
 		);
 			 
 		$payload = json_encode($post);
-
-		$payload_md5 = md5($payload);
 	     
      	$handle = curl_init(); 
 		curl_setopt($handle, CURLOPT_URL, $url);

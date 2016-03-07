@@ -50,8 +50,10 @@ class Ajax {
 
 			$module = $ymas->$module_name;
 
-			if (method_exists($module, $list_type))
-				$output = array_merge($output, $module->$list_type());
+			if (method_exists($module, $list_type) AND 
+				is_array($module->$list_type()) AND
+				$module->isConfigured() === true)
+					$output = array_merge($output, $module->$list_type());
 
 		}
 

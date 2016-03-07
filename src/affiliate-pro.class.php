@@ -16,7 +16,7 @@ class Affiliate {
 	*/
 	public $modules = array(
 		'Shortlinks',
-		'Adtraction', 'Adrecord', 'Double');
+		'Adrecord', 'Adtraction');
 
 	public function __construct() {
 
