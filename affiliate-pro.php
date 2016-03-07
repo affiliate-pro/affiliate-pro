@@ -59,7 +59,7 @@ add_action( 'plugins_loaded', 'YoungMedia\Affiliate\LoadPluginTextdomain' );
  * Checks if Titan Framework is installed and activated
  * Initialize plugin only if TitanFramework is installed and activated
 */
-require_once('titan-framework/titan-framework-embedder.php');
+require_once('src/frameworks/titan-framework/titan-framework-embedder.php');
 
 
 add_action('after_setup_theme', array('\YoungMedia\Affiliate\Affiliate', 'InitAffiliatePlugin'));
