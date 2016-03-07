@@ -10,7 +10,7 @@ namespace YoungMedia\Affiliate;
  * Author URI: https://rasmuskjellberg.se
  * Tags: affiliate, adtraction, adrecord, affiliate api
  * Keywords: affiliate, adtraction, adrecord, affiliates api
- * Version: 1.1.3
+ * Version: 1.1.4
  * Textdomain: ymas
  * Domain Path: /languages
 */
