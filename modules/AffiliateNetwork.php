@@ -1,12 +1,12 @@
 <?php
-namespace YoungMedia\Affiliate;
+namespace YoungMedia\Affiliate\Modules;
 
 
 /**
  * Module
  * This is the base and example class for modules
 */
-class AffiliateNetwork extends Module {
+class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 	
 	/** 
 	 * Filter dates when loading transactions etc.

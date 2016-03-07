@@ -1,8 +1,8 @@
 <?php
-namespace YoungMedia\Affiliate;
+namespace YoungMedia\Affiliate\Modules;
 
 
-class Double extends Module {
+class Double extends AffiliateNetwork {
 
 	/**
 	 * Set name & slug for module

@@ -31,4 +31,11 @@ class Module {
 		return $date->format(\DateTime::ISO8601);
 	}
 
+	public function dateToString( $input_date ) {
+
+		$timestamp = strtotime( $input_date );
+		return date("Y-m-d H:i", $timestamp);
+		
+	}
+
 }

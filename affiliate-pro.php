@@ -36,10 +36,10 @@ require_once('src/ajax.class.php');
 */
 require_once('modules/Module.php');
 require_once('modules/AffiliateNetwork.php');
-require_once('modules/adtraction/adtraction.class.php');
-require_once('modules/adrecord/adrecord.class.php');
-require_once('modules/double/double.class.php');
 
+require_once('modules/Adtraction/adtraction.class.php');
+require_once('modules/Adrecord/adrecord.class.php');
+require_once('modules/Double/double.class.php');
 
 /** 
  * Define default constants

@@ -1,5 +1,5 @@
 <?php
-namespace YoungMedia\Affiliate;
+namespace YoungMedia\Affiliate\Modules;
 
 
 /**
@@ -91,8 +91,8 @@ class Adtraction extends AffiliateNetwork {
 			$output[] = array(
 				'name' => $i->programName,
 				'transaction' => $i->transactionName,
-				'click_date' => ParseDate($i->clickDate),
-				'event_date' => ParseDate($i->transactionDate),
+				'click_date' => $this->dateToString($i->clickDate),
+				'event_date' => $this->dateToString($i->transactionDate),
 				'commission' => $i->commission,
 				'currency' => $i->currency,
 				'network' => 'Adtraction',

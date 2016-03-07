@@ -1,5 +1,5 @@
 <?php
-namespace YoungMedia\Affiliate;
+namespace YoungMedia\Affiliate\Modules;
 
 
 /**
@@ -82,8 +82,8 @@ class Adrecord extends AffiliateNetwork {
 			$output[] = array(
 				'name' => $i->program->name,
 				'transaction' => $i->commissionName . ' - ' . $i->type,
-				'click_date' => ParseDate($i->click),
-				'event_date' => ParseDate($i->changes[0]->date),
+				'click_date' => $this->dateToString($i->click),
+				'event_date' => $this->dateToString($i->changes[0]->date),
 				'commission' => $i->commission / 100,
 				'currency' => 'SEK',
 				'network' => 'Adrecord',
@@ -114,7 +114,6 @@ class Adrecord extends AffiliateNetwork {
 		return "http://click.adrecord.com?c={$channel_id}&p={$program_id}";
 	}
 
-
 	public function program ($program_id) {
 		return $this->getRequest("programs/{$program_id}")->result;
 	}
@@ -125,28 +124,21 @@ class Adrecord extends AffiliateNetwork {
 
 		$url = 'https://api.adrecord.com/v1/' . $command . '?apikey=' . $api_key;
 	 
-		$payload_md5 = md5($url);
-
-		//if ( false === ( $data = get_transient( 'ymas_api_req_' . $payload_md5 ) ) ) {
-	     
-	     	$handle = curl_init(); 
-			curl_setopt($handle, CURLOPT_URL, $url);
-			curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
-		 
-			$data = curl_exec($handle);
-		 
-			if ($data === false) {
-				$info = curl_getinfo($handle);
-				curl_close($handle);
-				die('error occurred during curl exec. Additional info: ' . var_export($info));
-			}
-		 
-			curl_close($handle);
-
-	    	//set_transient( 'ymas_api_req_' . $payload_md5, $data, 600 );
-		//}
+     	$handle = curl_init(); 
+		curl_setopt($handle, CURLOPT_URL, $url);
+		curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
 	 
+		$data = curl_exec($handle);
+	 
+		if ($data === false) {
+			$info = curl_getinfo($handle);
+			curl_close($handle);
+			die('error occurred during curl exec. Additional info: ' . var_export($info));
+		}
+	 
+		curl_close($handle);
+
 		return json_decode($data);
 	}
 

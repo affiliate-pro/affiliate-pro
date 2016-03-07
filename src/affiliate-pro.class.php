@@ -13,6 +13,11 @@ class Affiliate {
 
 	public $slug;
 
+	/**
+	 * List of modules that should be loaded 
+	*/
+	public $modules = array('Adtraction', 'Adrecord', 'Double');
+
 	public function __construct() {
 
 		/**
@@ -44,14 +49,7 @@ class Affiliate {
 		$this->titan = \TitanFramework::getInstance( 'ymas' );
 
 
-		/**
-		 * Load modules. This should be done some other way.
-		 * Probably automatically without beeing a security issue.
-		*/
-		$this->adtraction = new Adtraction();
-		$this->adrecord = new Adrecord();
-		$this->double = new Double();
-
+		$this->InitModules();
 	}
 
 	/**
@@ -63,6 +61,22 @@ class Affiliate {
 		$ymas = new Affiliate();
 	}
 
+	/**
+	 * Load modules.
+	 * Load affiliate pro modules.
+	*/
+	public function InitModules() {
+
+		$modules = $this->modules;
+
+		foreach ($modules as $module) {
+
+			$method_name = strtolower($module);			
+			$class_name = "\YoungMedia\Affiliate\Modules\\{$module}";
+
+			$this->$method_name = new $class_name;
+		}
+	}
 
 	/**
 	 * Register Rewrite Rules
@@ -78,32 +92,6 @@ class Affiliate {
 
 		flush_rewrite_rules();
 	}
-
-	/**
-	 * Register API keys
-	 * Register api keys for each plugin.
-	 * @todo: This must be moved to AffiliateNetwork class.
-	*/
-	public function RegisterApiKeys() {
-
-		global $ymas;
-		
-		/**
-		 * Adtraction
-		*/
-		// $api_token = $ymas->titan->getOption('adtraction_api_token');
-		// $channelID = $ymas->titan->getOption('adtraction_channel_id');
-		
-		// $ymas->adtraction->api->setApiKeys($api_token, $channelID);
-
-		/**
-		 * Adrecord
-		*/
-		// $api_token = $ymas->titan->getOption('adrecord_api_token');
-		// $channelID = $ymas->titan->getOption('adrecord_channel_id');
-		
-		// $ymas->adrecord->api->setApiKeys($api_token, $channelID);
-	}	
 
 	/**
 	 * Register Menus
