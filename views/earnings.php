@@ -1,5 +1,5 @@
 <div id="ymas" class="wrap" ng-controller="EarningsController">
-	<h1><?php _e('Affiliate', 'ymas');?> <small>&gt; <?php _e('Earnings', 'ymas');?></small></h1>
+	<h1><?php _e('Earnings', 'ymas');?></h1>
 	<h2>
 		<?php _e('Latest transactions', 'ymas');?> <i class="fa fa-spin fa-spinner"></i>
 	</h2>

@@ -100,7 +100,7 @@ class Affiliate {
 	public function RegisterMenus() {
 
 		\add_submenu_page('affiliate',
-	        'Affiliate > ' . __('Programs', 'ymas'),
+	        'Affiliate PRO > ' . __('Programs', 'ymas'),
 	        __('Programs', 'ymas'),
 	        'manage_options',
 	        'affiliate-programs',
@@ -108,7 +108,7 @@ class Affiliate {
         );
 
         \add_submenu_page('affiliate',
-	        'Affiliate > ' . __('Earnings', 'ymas'),
+	        'Affiliate PRO > ' . __('Earnings', 'ymas'),
 	        __('Earnings', 'ymas'),
 	        'manage_options',
 	        'affiliate-earnings',
@@ -141,9 +141,8 @@ class Affiliate {
 
 	public function RegisterTitanSettingsPages() {
 		$this->admin_settings_page = $this->admin_dashboard->createAdminPanel( array(
-		    'name' => __('Settings', 'ymas'),
-		    'title' => 'Affiliate <small>&gt; Settings</small>',
-		    'slug' => 'settings',
+		    'name' => __('Affiliate PRO', 'ymas'),
+		    'title' => 'Affiliate PRO',
 		));
 	}
 
