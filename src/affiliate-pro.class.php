@@ -15,7 +15,7 @@ class Affiliate {
 	 * List of modules that should be loaded 
 	*/
 	public $modules = array(
-		'shortlinks', 'adrecord', 'adtraction');
+		'adrecord', 'adtraction');
 
 	public function __construct() {
 
