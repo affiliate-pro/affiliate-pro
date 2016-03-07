@@ -15,8 +15,7 @@ class Affiliate {
 	 * List of modules that should be loaded 
 	*/
 	public $modules = array(
-		'Shortlinks',
-		'Adrecord', 'Adtraction');
+		'shortlinks', 'adrecord', 'adtraction');
 
 	public function __construct() {
 
@@ -69,10 +68,14 @@ class Affiliate {
 		$modules = $this->modules;
 
 		foreach ($modules as $module) {
+
 			$method_name = strtolower($module);			
+			$module = ucfirst($module);		
+
 			$class_name = "\YoungMedia\Affiliate\Modules\\{$module}";
 
 			$this->$method_name = new $class_name;
+			
 		}
 	}
 

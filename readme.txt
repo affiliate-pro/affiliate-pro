@@ -3,7 +3,7 @@ Contributors: rkjellberg
 Tags: affiliate, adtraction, adrecord, affiliate api
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,11 +52,15 @@ This plugin currently supports:
 
 == Changelog ==
 
+= 1.1.5 =
+*Release Date - 7 mars 2016*
+
+- Bugfix: Using lowercase folders for modules to prevent including errors.
+
 = 1.1.4 =
 *Release Date - 7 mars 2016*
 
 - Bugfix: Affiliate Networks are now stand-alone modules.
-- Bugfix: Fixed case-sensitive git errors on module folders
 
 = 1.1.2 =
 *Release Date - 6 mars 2016*
