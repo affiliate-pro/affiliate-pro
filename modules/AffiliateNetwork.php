@@ -6,7 +6,7 @@ namespace YoungMedia\Affiliate\Modules;
  * Module
  * This is the base and example class for modules
 */
-class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
+class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 	
 	/** 
 	 * Filter dates when loading transactions etc.
@@ -28,20 +28,24 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 
 	/*
 	 * Init
-	 * Calls on parent __construct()
+	 * Calls on wp hook init
 	*/
-	public function init() {
-		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
-	}
+	public function _init() {
 
+	}
+	
 	/*
-	 * Register API keys
-	 * Load API token & channel ID from DB into variables.
+	 * Init
+	 * Calls on wp hook admin_init
 	*/
-	public function RegisterApiKeys() {
+	public function _admin_init() {
 
 		global $ymas;
 
+		/*
+		 * Register API keys
+		 * Load API token & channel ID from DB into variables.
+		*/
 		$this->api_token = $ymas->titan->getOption( $this->slug . '_api_token');
 		$this->channelID = $ymas->titan->getOption( $this->slug . '_channel_id');
 		
@@ -51,7 +55,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 	 * Options 
 	 * Create admin menu options for API tokens and channel ID
 	*/
-	public function Options() {
+	public function _Options() {
 
 		global $ymas;
 		
@@ -66,7 +70,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 			'id' => $this->slug . '_api_token',
 			'type' => 'text',
 			'placeholder' => __('Enter API-key (access token)', 'ymas'),
-			'desc' => __('Learn more about this field in the <a href="#">Documentation</a>', 'ymas'),
+			'desc' => __('Learn more about this field in the <a href="#">documentation</a>', 'ymas'),
 		));
 
 		$ymas->admin_settings_api_tab->createOption( array(
@@ -74,7 +78,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 			'id' => $this->slug . '_channel_id',
 			'type' => 'text',
 			'placeholder' => __('Enter your channel ID', 'ymas'),
-			'desc' => __('Learn more about this field in the <a href="#">Documentation</a>', 'ymas'),
+			'desc' => __('Learn more about this field in the', 'ymas') . ' <a href="#">' . __('documentation', 'ymas') .'</a>',
 		));
 
 		$ymas->admin_settings_api_tab->createOption( array(
@@ -129,8 +133,8 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\Module {
 			array(
 				'name' => 'Demo program',
 				'transaction' => 'Demotransaction',
-				'click_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
-				'event_date' => ParseDate(strtotime(date("Y-m-d H:i"))),
+				'click_date' => $this->dateToString(date("Y-m-d H:i")),
+				'event_date' => $this->dateToString(date("Y-m-d H:i")),
 				'commission' => '120',
 				'currency' => 'SEK',
 				'network' => 'Demo Network',

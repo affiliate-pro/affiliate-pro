@@ -29,6 +29,7 @@ if ( ! defined( 'ABSPATH' ) )
 require_once('src/affiliate-pro.class.php');
 require_once('src/functions.php');
 require_once('src/ajax.class.php');
+require_once('src/modules.class.php');
 
 
 /**
@@ -40,6 +41,8 @@ require_once('modules/AffiliateNetwork.php');
 require_once('modules/Adtraction/adtraction.class.php');
 require_once('modules/Adrecord/adrecord.class.php');
 require_once('modules/Double/double.class.php');
+
+require_once('modules/Shortlinks/shortlinks.class.php');
 
 /** 
  * Define default constants

@@ -18,10 +18,7 @@ class Ajax {
 		
 		global $ymas;
 
-		$adtraction = $ymas->adtraction->programs();
-		$adrecord = $ymas->adrecord->programs();
-
-		$output = array_merge($adtraction, $adrecord);
+		$output = $this->CombineLists('programs');
 
 		wp_send_json(array(
 			'status' => 'ok',
@@ -33,15 +30,32 @@ class Ajax {
 		
 		global $ymas;
 
-		$adtraction = $ymas->adtraction->transactions();
-		$adrecord = $ymas->adrecord->transactions();
-
-		$output = array_merge($adtraction, $adrecord);
+		$output = $this->CombineLists('transactions');
 
 		wp_send_json(array(
 			'status' => 'ok',
 			'results' => $output
 		));
+	}
+
+	public function CombineLists( $list_type ) {
+
+		global $ymas;
+
+		$output = array();
+		
+		foreach ($ymas->modules as $module) {
+
+			$module_name = strtolower($module);
+
+			$module = $ymas->$module_name;
+
+			if (method_exists($module, $list_type))
+				$output = array_merge($output, $module->$list_type());
+
+		}
+
+		return $output;
 	}
 
 } new Ajax();

@@ -11,12 +11,12 @@ class Affiliate {
 	public $admin_settings_api_tab;
 	public $admin_settings_advanced_tab;
 
-	public $slug;
-
 	/**
 	 * List of modules that should be loaded 
 	*/
-	public $modules = array('Adtraction', 'Adrecord', 'Double');
+	public $modules = array(
+		'Shortlinks',
+		'Adtraction', 'Adrecord', 'Double');
 
 	public function __construct() {
 
@@ -29,10 +29,8 @@ class Affiliate {
 		/**
 		 * Prepare wordpress hooks
 		*/
-		add_action( 'init', array(&$this, 'RegisterRewriteRules') );
 		add_action( 'admin_menu', array(&$this, 'RegisterMenus'));
 		add_action( 'admin_enqueue_scripts', array(&$this, 'RegisterScriptsAndCss') );
-
 
 		/**
 		 * Create option pages (using Titan Framework)
@@ -40,7 +38,6 @@ class Affiliate {
 		add_action(	'tf_create_options', array(&$this, 'RegisterTitanDashboard'));
 		add_action( 'tf_create_options', array(&$this, 'RegisterTitanSettingsPages'));
 		add_action( 'tf_create_options', array(&$this, 'RegisterTitanSettingsTabs'));
-		add_action(	'tf_create_options', array(&$this, 'RegisterAdvancedSettingsOptions'));
 
 
 		/**
@@ -48,7 +45,9 @@ class Affiliate {
 		*/
 		$this->titan = \TitanFramework::getInstance( 'ymas' );
 
-
+		/**
+		 * Load modules.
+		*/
 		$this->InitModules();
 	}
 
@@ -70,27 +69,11 @@ class Affiliate {
 		$modules = $this->modules;
 
 		foreach ($modules as $module) {
-
 			$method_name = strtolower($module);			
 			$class_name = "\YoungMedia\Affiliate\Modules\\{$module}";
 
 			$this->$method_name = new $class_name;
 		}
-	}
-
-	/**
-	 * Register Rewrite Rules
-	 * Create rewrite rule for affiliate short links.
-	*/
-	public function RegisterRewriteRules( $slug = 'out' ) {
-
-		add_rewrite_rule(
-			'^'.$slug.'/([a-zA-Z0-9]+)?',
-			'index.php?affiliate_redirect=$matches[1]',
-			'top'
-		);
-
-		flush_rewrite_rules();
 	}
 
 	/**
@@ -159,27 +142,6 @@ class Affiliate {
 		));
 	}
 
-	public function RegisterAdvancedSettingsOptions() {
-
-		$this->admin_settings_advanced_tab->createOption( array(
-		    'name' => 'Short links',
-		    'type' => 'heading',
-			'toggle' => true,
-		));
-
-		$this->admin_settings_advanced_tab->createOption( array(
-			'name' => 'Permalink (slug)',
-			'id' => 'ymas_permalink_slug',
-			'type' => 'text',
-			'default' => 'out',
-			'desc' => 'Change to a custom URL slug for your affiliate links.<br><strong>The structure is:</strong>' . site_url() . '/&lt;slug&gt;/<program>',
-		));
-
-		$this->admin_settings_advanced_tab->createOption( array(
-		    'type' => 'save',
-		));
-	}
-
 	public function LoadViewPrograms() {
 		global $ymas;
 		$this->LoadView('programs');
@@ -202,16 +164,4 @@ class Affiliate {
 		echo '</div>';
 	}
 
-	public function getSlug() {
-		
-		@$slug = $this->titan->getOption('ymas_permalink_slug');
-		
-		if (isset($slug) AND !empty($slug))
-			$this->slug = $this->titan->getOption('ymas_permalink_slug');
-		else
-			$this->slug = 'out';
-
-		return $this->slug;
-
-	}
 }
