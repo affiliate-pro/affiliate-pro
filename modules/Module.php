@@ -17,8 +17,9 @@ class Module {
 			add_action(	'tf_create_options', array(&$this, 'Options'));
 		}
 
-		$this->api = new AdtractionAPI();
-
+		if (method_exists($this, 'init')) {
+			$this->init();
+		}
 	}
 
 	/**

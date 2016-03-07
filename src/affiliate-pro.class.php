@@ -25,7 +25,6 @@ class Affiliate {
 		 * Prepare wordpress hooks
 		*/
 		add_action( 'init', array(&$this, 'RegisterRewriteRules') );
-		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
 		add_action( 'admin_menu', array(&$this, 'RegisterMenus'));
 		add_action( 'admin_enqueue_scripts', array(&$this, 'RegisterScriptsAndCss') );
 
@@ -92,18 +91,18 @@ class Affiliate {
 		/**
 		 * Adtraction
 		*/
-		$api_token = $ymas->titan->getOption('adtraction_api_token');
-		$channelID = $ymas->titan->getOption('adtraction_channel_id');
+		// $api_token = $ymas->titan->getOption('adtraction_api_token');
+		// $channelID = $ymas->titan->getOption('adtraction_channel_id');
 		
-		$ymas->adtraction->api->setApiKeys($api_token, $channelID);
+		// $ymas->adtraction->api->setApiKeys($api_token, $channelID);
 
 		/**
 		 * Adrecord
 		*/
-		$api_token = $ymas->titan->getOption('adrecord_api_token');
-		$channelID = $ymas->titan->getOption('adrecord_channel_id');
+		// $api_token = $ymas->titan->getOption('adrecord_api_token');
+		// $channelID = $ymas->titan->getOption('adrecord_channel_id');
 		
-		$ymas->adrecord->api->setApiKeys($api_token, $channelID);
+		// $ymas->adrecord->api->setApiKeys($api_token, $channelID);
 	}	
 
 	/**
@@ -118,14 +117,6 @@ class Affiliate {
 	        'manage_options',
 	        'affiliate-programs',
 	        array(&$this, 'LoadViewPrograms')
-        );
-
-        \add_submenu_page('affiliate',
-	        'Affiliate > ' . __('Coupon Codes', 'ymas'),
-	        __('Coupons', 'ymas'),
-	        'manage_options',
-	        'affiliate-coupons',
-	        array(&$this, 'LoadViewCoupon')
         );
 
         \add_submenu_page('affiliate',
@@ -205,13 +196,6 @@ class Affiliate {
 	public function LoadViewPrograms() {
 		global $ymas;
 		$this->LoadView('programs');
-	}
-
-	public function LoadViewCoupon() {
-		global $ymas;
-		$this->LoadView('coupons', array(
-			'coupons' => $ymas->adtraction->api->coupons(),
-		));
 	}
 
 	public function LoadViewEarnings() {

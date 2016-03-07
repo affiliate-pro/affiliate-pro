@@ -14,23 +14,79 @@ class AffiliateNetwork extends Module {
 	public $from_date = "2016-01-01 00:00";
 	public $to_date = "2016-12-31 23:59";
 
+	/** 
+	 * Set default name and slug for module
+	*/
+	public $name = 'Demo Network';
+	public $slug = 'demonetwork';
+
+	/**
+	 * API token & Channel
+	*/
+	public $api_token;
+	public $channelID;
+
+	/*
+	 * Init
+	 * Calls on parent __construct()
+	*/
+	public function init() {
+		add_action( 'admin_init', array(&$this, 'RegisterApiKeys') );
+	}
+
+	/*
+	 * Register API keys
+	 * Load API token & channel ID from DB into variables.
+	*/
+	public function RegisterApiKeys() {
+
+		global $ymas;
+
+		$this->api_token = $ymas->titan->getOption( $this->slug . '_api_token');
+		$this->channelID = $ymas->titan->getOption( $this->slug . '_channel_id');
+		
+	}
+
 	/**
 	 * Options 
-	 * Create admin menu options
+	 * Create admin menu options for API tokens and channel ID
 	*/
 	public function Options() {
 
 		global $ymas;
 		
 		$ymas->admin_settings_api_tab->createOption( array(
-		    'name' => 'Demo Network API',
+		    'name' => $this->name,
 		    'type' => 'heading',
 		    'toggle' => true,
 		));
 
 		$ymas->admin_settings_api_tab->createOption( array(
+			'name' => 'API token',
+			'id' => $this->slug . '_api_token',
+			'type' => 'text',
+			'placeholder' => __('Enter API-key (access token)', 'ymas'),
+			'desc' => __('Learn more about this field in the <a href="#">Documentation</a>', 'ymas'),
+		));
+
+		$ymas->admin_settings_api_tab->createOption( array(
+			'name' => 'Channel ID',
+			'id' => $this->slug . '_channel_id',
+			'type' => 'text',
+			'placeholder' => __('Enter your channel ID', 'ymas'),
+			'desc' => __('Learn more about this field in the <a href="#">Documentation</a>', 'ymas'),
+		));
+
+		$ymas->admin_settings_api_tab->createOption( array(
+		    'type' => 'iframe',
+		    'height' => 50,
+		    'url' => YMAS_ASSETS . 'programs/' . $this->slug . '.html',
+		));
+
+		$ymas->admin_settings_api_tab->createOption( array(
 		    'type' => 'save',
 		));
+
 	}
 
 	/**
@@ -81,5 +137,22 @@ class AffiliateNetwork extends Module {
 			),
 		);
 	}
+
+	/**
+	 * Check if user has configuered API keys for this module
+	*/
+	public function isConfigured() {
+
+		global $ymas;
+		
+		$api_token = $ymas->titan->getOption( $slug . '_api_token');
+		$channelID = $ymas->titan->getOption( $slug . '_channel_id');
+		
+		if (empty($api_token) OR empty($channelID))
+			return false;		
+
+		return true;
+	}
+
 
 }

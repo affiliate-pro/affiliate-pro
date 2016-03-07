@@ -3,21 +3,18 @@ namespace YoungMedia\Affiliate;
 
 
 /**
- * Require API class
-*/
-require_once('adrecord.api.php');
-
-
-/**
  * Adrecord Module
  * Connection with Adtraction API
 */
-class Adrecord {
+class Adrecord extends AffiliateNetwork {
 	
-	public function __construct() {
-		add_action(	'tf_create_options', array(&$this, 'RegisterTitanOptions'));
-		$this->api = new AdrecordAPI();
-	}
+	/**
+	 * Set name & slug for module
+	 * This will be used as a variable for saving things like API keys.
+	*/
+	public $name = 'Adrecord';
+	public $slug = 'adrecord';
+
 
 	/**
 	 * Connect with service API and 
@@ -33,7 +30,7 @@ class Adrecord {
 
 		$output = array();
 
-		$api_response = $this->api->programs();
+		$api_response = $this->getRequest('statistics')->result;
 
 		foreach ($api_response as $i) {
 
@@ -70,7 +67,7 @@ class Adrecord {
 
 		$output = array();
 
-		$api_response = $this->api->transactions();
+		$api_response = $this->getRequest('transactions')->result;
 
 		foreach ($api_response as $i) {
 
@@ -96,64 +93,61 @@ class Adrecord {
 		return $output;
 	}
 
-	public function isConfigured() {
+	/**********************************
+	 * 
+	 * CUSTOM FUNCTION
+	 * CUSTOM FUNCTIONS RELATED TO THIS SPECIFIC NETWORK
+	 *
+	 **********************************/
 
-		global $ymas;
-		
-		$api_token = $ymas->titan->getOption('adrecord_api_token');
-		$channelID = $ymas->titan->getOption('adrecord_channel_id');
-		
-		if (empty($api_token) OR empty($channelID))
-			return false;		
 
-		return true;
-	}
-
+	/**
+	 * Tracking URL
+	 * Generate Adrecorc tracking url from program id and channel id
+	*/
 	public function tracking_url( $program_id ) {
 
 		global $ymas;
 
-		$channel_id = $ymas->titan->getOption('adrecord_channel_id');
+		$channel_id = $ymas->titan->getOption( $this->slug . '_channel_id');
 		
 		return "http://click.adrecord.com?c={$channel_id}&p={$program_id}";
 	}
 
-	public function RegisterTitanOptions() {
 
-		global $ymas;
-		
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'name' => 'Adrecord',
-		    'type' => 'heading',
-		    'toggle' => true,
-		));
+	public function program ($program_id) {
+		return $this->getRequest("programs/{$program_id}")->result;
+	}
 
-		$ymas->admin_settings_api_tab->createOption( array(
-			'name' => 'API key',
-			'id' => 'adrecord_api_token',
-			'type' => 'text',
-			'placeholder' => 'b3q2OIVr4wmJIagsk',
-			'desc' => 'Can be found at "<a href="https://www.adrecord.com/en/advanced/api" target="_new">Advanced &gt; API</a>" in your Adrecord Dashboard',
-		));
+	public function getRequest( $command ) {
 
-		$ymas->admin_settings_api_tab->createOption( array(
-			'name' => 'Channel ID',
-			'id' => 'adrecord_channel_id',
-			'type' => 'text',
-			'placeholder' => '12345',
-			'desc' => 'Can be found at "<a href="https://www.adrecord.com/en/channels" target="_new">Channels</a>" in your Adrecord Dashboard',
-		));
+		$api_key = $this->api_token;
 
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'type' => 'iframe',
-		    'height' => 50,
-		    'url' => YMAS_ASSETS . 'programs/adrecord.html',
-		));
+		$url = 'https://api.adrecord.com/v1/' . $command . '?apikey=' . $api_key;
+	 
+		$payload_md5 = md5($url);
 
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'type' => 'save',
-		));
+		//if ( false === ( $data = get_transient( 'ymas_api_req_' . $payload_md5 ) ) ) {
+	     
+	     	$handle = curl_init(); 
+			curl_setopt($handle, CURLOPT_URL, $url);
+			curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
+		 
+			$data = curl_exec($handle);
+		 
+			if ($data === false) {
+				$info = curl_getinfo($handle);
+				curl_close($handle);
+				die('error occurred during curl exec. Additional info: ' . var_export($info));
+			}
+		 
+			curl_close($handle);
 
+	    	//set_transient( 'ymas_api_req_' . $payload_md5, $data, 600 );
+		//}
+	 
+		return json_decode($data);
 	}
 
 }

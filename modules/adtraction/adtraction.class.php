@@ -1,11 +1,5 @@
 <?php
 namespace YoungMedia\Affiliate;
-use YoungMedia\Affiliate\Modules;
-
-/**
- * Require API class
-*/
-require_once('adtraction.api.php');
 
 
 /**
@@ -13,6 +7,13 @@ require_once('adtraction.api.php');
  * Connection with Adtraction API
 */
 class Adtraction extends AffiliateNetwork {
+
+	/**
+	 * Set name & slug for module
+	 * This will be used as a variable for saving things like API keys.
+	*/
+	public $name = 'Adtraction';
+	public $slug = 'adtraction';
 
 	/**
 	 * Connect with service API and 
@@ -28,7 +29,10 @@ class Adtraction extends AffiliateNetwork {
 
 		$output = array();
 
-		$api_response = $this->api->programs();
+		$api_response = $this->getRequest('programs', array(
+			'channelId' => $this->channelID,
+			'approvalStatus' => 1
+		));
 
 		foreach ($api_response as $i) {
 
@@ -68,7 +72,11 @@ class Adtraction extends AffiliateNetwork {
 		$from_date = $this->dateToISO8601($this->from_date);
 		$to_date = $this->dateToISO8601($this->to_date);
 
-		$api_response = $this->api->transactions($from_date, $to_date);
+		$api_response = $this->getRequest('transactions', array(
+			'channelId' => $this->channelID,
+			'fromDate' => $from_date,
+			'toDate' => $to_date,
+		));
 
 		foreach ($api_response as $i) {
 
@@ -94,55 +102,50 @@ class Adtraction extends AffiliateNetwork {
 		return $output;
 	}
 
-	public function isConfigured() {
+	
+	/**********************************
+	 * 
+	 * CUSTOM FUNCTION
+	 * CUSTOM FUNCTIONS RELATED TO THIS SPECIFIC NETWORK
+	 *
+	 **********************************/
 
-		global $ymas;
-		
-		$api_token = $ymas->titan->getOption('adtraction_api_token');
-		$channelID = $ymas->titan->getOption('adtraction_channel_id');
-		
-		if (empty($api_token) OR empty($channelID))
-			return false;		
 
-		return true;
-	}
+	public function getRequest( $command, $post ) {
 
-	public function Options() {
+		$url = 'https://api.adtraction.com/v1/affiliate/' . $command;
+	 
+		$headers = array(
+			"X-Token: " . $this->api_token,
+			"Content-Type: application/json",
+			"Accept: application/json",
+			"Access-Control-Request-Method: POST",
+			"Access-Control-Request-Headers: content-type,X-Token"
+		);
+			 
+		$payload = json_encode($post);
 
-		global $ymas;
-		
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'name' => 'Adtraction',
-		    'type' => 'heading',
-		    'toggle' => true,
-		));
-
-		$ymas->admin_settings_api_tab->createOption( array(
-			'name' => 'API token',
-			'id' => 'adtraction_api_token',
-			'type' => 'text',
-			'placeholder' => '63ECEB5B9AE3230262838CEE1C679DD152DFC0',
-			'desc' => 'Can be found at "<a href="https://secure.adtraction.com/affiliate/editaffiliate.htm" target="_new">Account > Settings</a>" in your Adtraction Dashboard',
-		));
-
-		$ymas->admin_settings_api_tab->createOption( array(
-			'name' => 'Channel ID',
-			'id' => 'adtraction_channel_id',
-			'type' => 'text',
-			'placeholder' => '23423423234',
-			'desc' => 'Can be found at "<a href="https://secure.adtraction.com/affiliate/viewwebsites.htm" target="_new">Account > My Channels</a>" in your Adtraction Dashboard',
-		));
-
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'type' => 'iframe',
-		    'height' => 50,
-		    'url' => YMAS_ASSETS . 'programs/adtraction.html',
-		));
-
-		$ymas->admin_settings_api_tab->createOption( array(
-		    'type' => 'save',
-		));
-
+		$payload_md5 = md5($payload);
+	     
+     	$handle = curl_init(); 
+		curl_setopt($handle, CURLOPT_URL, $url);
+		curl_setopt($handle, CURLOPT_HTTPHEADER, $headers);
+		curl_setopt($handle, CURLOPT_POST, true);
+		curl_setopt($handle, CURLOPT_POSTFIELDS, $payload);
+		curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
+	 
+		$data = curl_exec($handle);
+	 
+		if ($data === false) {
+			$info = curl_getinfo($handle);
+			curl_close($handle);
+			die('error occurred during curl exec. Additional info: ' . var_export($info));
+		}
+	 
+		curl_close($handle);
+	 
+		return json_decode($data);
 	}
 
 }
