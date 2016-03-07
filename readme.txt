@@ -52,6 +52,11 @@ This plugin currently supports:
 
 == Changelog ==
 
+= 1.1.3 =
+*Release Date - 7 mars 2016*
+
+- Bugfix: Affiliate Networks are now stand-alone modules.
+
 = 1.1.2 =
 *Release Date - 6 mars 2016*
 

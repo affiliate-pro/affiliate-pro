@@ -73,6 +73,10 @@ class Double extends AffiliateNetwork {
 
 	}
 
+	/**
+	 * Get Request
+	 * Download API data with CURL
+	*/
 	public function getRequest( $command ) {
 
 		$api_key = $this->api_token;

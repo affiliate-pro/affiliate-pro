@@ -102,15 +102,10 @@ class Adtraction extends AffiliateNetwork {
 		return $output;
 	}
 
-	
-	/**********************************
-	 * 
-	 * CUSTOM FUNCTION
-	 * CUSTOM FUNCTIONS RELATED TO THIS SPECIFIC NETWORK
-	 *
-	 **********************************/
-
-
+	/**
+	 * Get Request
+	 * Download API data with CURL
+	*/
 	public function getRequest( $command, $post ) {
 
 		$url = 'https://api.adtraction.com/v1/affiliate/' . $command;

@@ -93,32 +93,15 @@ class Adrecord extends AffiliateNetwork {
 		return $output;
 	}
 
-	/**********************************
-	 * 
-	 * CUSTOM FUNCTION
-	 * CUSTOM FUNCTIONS RELATED TO THIS SPECIFIC NETWORK
-	 *
-	 **********************************/
-
-
 	/**
-	 * Tracking URL
-	 * Generate Adrecorc tracking url from program id and channel id
+	 * Get Request
+	 * Download API data with CURL
 	*/
-	public function tracking_url( $program_id ) {
-
-		global $ymas;
-
-		$channel_id = $ymas->titan->getOption( $this->slug . '_channel_id');
-		
-		return "http://click.adrecord.com?c={$channel_id}&p={$program_id}";
-	}
-
 	public function getRequest( $command ) {
 
-		$api_key = $this->api_token;
+		$api_token = $this->api_token;
 
-		$url = 'https://api.adrecord.com/v1/' . $command . '?apikey=' . $api_key;
+		$url = 'https://api.adrecord.com/v1/' . $command . '?apikey=' . $api_token;
 	 
      	$handle = curl_init(); 
 		curl_setopt($handle, CURLOPT_URL, $url);
@@ -136,6 +119,19 @@ class Adrecord extends AffiliateNetwork {
 		curl_close($handle);
 
 		return json_decode($data);
+	}
+
+	/**
+	 * Tracking URL
+	 * Generate Adrecorc tracking url from program id and channel id
+	*/
+	public function tracking_url( $program_id ) {
+
+		global $ymas;
+
+		$channel_id = $ymas->titan->getOption( $this->slug . '_channel_id');
+		
+		return "http://click.adrecord.com?c={$channel_id}&p={$program_id}";
 	}
 
 }
