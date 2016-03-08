@@ -13,6 +13,7 @@ class ModuleHelper {
 
 	public function __construct() {
 
+
 		if (method_exists($this, '_Options')) {
 			add_action(	'tf_create_options', array(&$this, '_Options'));
 		}
@@ -22,6 +23,9 @@ class ModuleHelper {
 
 		if (method_exists($this, '_admin_init')) 
 			add_action( 'admin_init', array(&$this, '_admin_init') );
+
+		if (method_exists($this, '_wp_footer')) 
+			add_action( 'wp_footer', array(&$this, '_wp_footer') );
 
 
 		if (method_exists($this, 'Options')) {
@@ -34,6 +38,16 @@ class ModuleHelper {
 		if (method_exists($this, 'admin_init')) 
 			add_action( 'admin_init', array(&$this, 'admin_init') );
 
+		if (method_exists($this, 'wp_footer')) 
+			add_action( 'wp_footer', array(&$this, 'wp_footer') );
+
+	}
+
+	public function isEnabled( $value ) {
+
+		global $ymas;
+		return $ymas->titan->getOption( $this->slug . '_enabled_' . $value );
+		
 	}
 
 	/**
@@ -49,6 +63,5 @@ class ModuleHelper {
 
 		$timestamp = strtotime( $input_date );
 		return date("Y-m-d H:i", $timestamp);
-		
 	}
 }

@@ -31,15 +31,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 	 * Calls on wp hook init
 	*/
 	public function _init() {
-
-	}
-	
-	/*
-	 * Init
-	 * Calls on wp hook admin_init
-	*/
-	public function _admin_init() {
-
+		
 		global $ymas;
 
 		/*
@@ -48,6 +40,14 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 		*/
 		$this->api_token = $ymas->titan->getOption( $this->slug . '_api_token');
 		$this->channelID = $ymas->titan->getOption( $this->slug . '_channel_id');
+		
+	}
+	
+	/*
+	 * Init
+	 * Calls on wp hook admin_init
+	*/
+	public function _admin_init() {
 		
 	}
 
