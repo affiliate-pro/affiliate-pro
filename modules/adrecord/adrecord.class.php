@@ -50,6 +50,7 @@ class Adrecord extends AffiliateNetwork {
 		return $output;
 	}
 
+
 	/**
 	 * Connect with service API and 
 	 * return an array of transactions.
@@ -67,9 +68,15 @@ class Adrecord extends AffiliateNetwork {
 
 		$output = array();
 
-		$api_response = $this->getRequest('transactions')->result;
+		$api_response = $this->getRequest('transactions', array(
+			'start' => $this->from_date,
+			'stop' => $this->to_date,
+		));
 
-		foreach ($api_response as $i) {
+		if (!isset($api_response) OR !isset($api_response->result))
+			return $output;
+
+		foreach ($api_response->result as $i) {
 
 			if (!isset($i->program->name) OR 
 				!isset($i->commissionName) OR
@@ -104,7 +111,7 @@ class Adrecord extends AffiliateNetwork {
 			return false;
 
 		global $ymas;
-		
+
 		$ymas->admin_settings_advanced_tab->createOption( array(
 		    'name' => $this->name,
 		    'type' => 'heading',
@@ -121,16 +128,22 @@ class Adrecord extends AffiliateNetwork {
 
 		$ymas->admin_settings_advanced_tab->createOption( array(
 		    'type' => 'save',
+		    'use_reset' => false,
 		));
 
 	}
 
+
+	/*
+	 * WP Footer
+	 * Calls on wp hook wp_footer
+	*/
 	public function wp_footer() {
 
 		if (!$this->isConfigured())
 			return;
 
-		if (!$this->isEnabled('cleanlinks'))
+		if (!$this->isEnabledOption('cleanlinks'))
 			return;
 
 		$channel_id = $this->channelID;
@@ -155,11 +168,14 @@ class Adrecord extends AffiliateNetwork {
 	 * Get Request
 	 * Download API data with CURL
 	*/
-	public function getRequest( $command ) {
+	public function getRequest( $command, $params = array() ) {
 
 		$api_token = $this->api_token;
 
 		$url = 'https://api.adrecord.com/v1/' . $command . '?apikey=' . $api_token;
+
+		if (isset($params['start']) AND isset($params['stop']))
+			$url .= "&start=" . $params['start'] . "&stop=" . $params['stop'];
 	 
      	$handle = curl_init(); 
 		curl_setopt($handle, CURLOPT_URL, $url);

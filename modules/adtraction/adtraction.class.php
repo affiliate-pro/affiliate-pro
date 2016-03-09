@@ -78,6 +78,10 @@ class Adtraction extends AffiliateNetwork {
 			'toDate' => $to_date,
 		));
 
+
+		if (!isset($api_response))
+			return $output;
+
 		foreach ($api_response as $i) {
 
 			if (!isset($i->programName) OR 

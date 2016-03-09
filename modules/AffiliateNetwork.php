@@ -11,8 +11,8 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 	/** 
 	 * Filter dates when loading transactions etc.
 	*/
-	public $from_date = "2016-01-01 00:00";
-	public $to_date = "2016-12-31 23:59";
+	public $from_date = "2016-01-01";
+	public $to_date = "2016-12-12";
 
 	/** 
 	 * Set default name and slug for module
@@ -70,7 +70,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 			'id' => $this->slug . '_api_token',
 			'type' => 'text',
 			'placeholder' => __('Enter API-key (access token)', 'ymas'),
-			'desc' => __('Learn more about this field in the <a href="#">documentation</a>', 'ymas'),
+			'desc' => __('Learn more about this field in the', 'ymas') . ' <a href="#">' . __('documentation', 'ymas') . '</a>',
 		));
 
 		$ymas->admin_settings_api_tab->createOption( array(
@@ -89,6 +89,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 
 		$ymas->admin_settings_api_tab->createOption( array(
 		    'type' => 'save',
+		    'use_reset' => false,
 		));
 
 	}

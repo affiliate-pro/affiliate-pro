@@ -1,6 +1,7 @@
 === Affiliate PRO ===
 Contributors: rkjellberg
-Tags: affiliate, adtraction, adrecord, affiliate api
+Tags: affiliate, adtraction, adrecord, clean links, affiliate api
+Keywords: affiliate, adtraction, adrecord, clean links, affiliate api
 Requires at least: 3.7
 Tested up to: 4.4.2
 Stable tag: 1.2
@@ -12,15 +13,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Import affiliate data and statistics to your Wordpress site. 
 More info and documentation can be found at our official website:
 
-- Official Website:
-https://affiliate-pro.github.io
+= Links =
+[Official Website](https://affiliate-pro.github.io)
+[Github REPO](https://github.com/affiliate-pro/affiliate-pro)
 
-- Github REPO:
-https://github.com/affiliate-pro/affiliate-pro
+= Translated to =
+- English
+- Svenska
 
 = Supported affiliate networks =
-This plugin currently supports:
-
 - Adrecord
 - Adtraction
 
@@ -52,27 +53,17 @@ This plugin currently supports:
 
 == Changelog ==
 
-= 1.1.5 =
-*Release Date - 7 mars 2016*
+= 1.3 =
+*Release Date - 8 mars 2016*
 
-- Bugfix: Using lowercase folders for modules to prevent including errors.
+- Added Dashboard with statistics and charts
+- Improved modules integrations
+- New feature: post/page word counter
 
-= 1.1.4 =
-*Release Date - 7 mars 2016*
+= 1.2 =
+*Release Date - 8 mars 2016*
 
-- Bugfix: Affiliate Networks are now stand-alone modules.
-
-= 1.1.2 =
-*Release Date - 6 mars 2016*
-
-- Bugfix: date sort order in tables
-- Added screenshots to plugin page
-
-= 1.1.1 =
-*Release Date - 6 mars 2016*
-
-- Small design fixes (CSS)
-- Added plugin page assets and description.
+- Added Clean links support for Adrecord
 
 = 1.1 =
 *Release Date - 6 mars 2016*
@@ -93,5 +84,7 @@ First release, just to get it live in Wordpress.
 == Frequently Asked Questions ==
 
 = Wich affiliate networks does this plugin support? =
-- Adtraction
-- Adrecord
+- Adtraction, Adrecord
+
+= Does it support Clean links? =
+- Yes, Affiliate Pro supports clean links, but for Adrecord only.

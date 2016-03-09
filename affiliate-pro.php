@@ -8,8 +8,8 @@ namespace YoungMedia\Affiliate;
  * Plugin URL: https://affiliate-pro.github.io/
  * Author: Rasmus Kjellberg
  * Author URI: https://rasmuskjellberg.se
- * Tags: affiliate, adtraction, adrecord, affiliate api
- * Keywords: affiliate, adtraction, adrecord, affiliates api
+ * Tags: affiliate, adtraction, adrecord, clean links, affiliate api
+ * Keywords: affiliate, adtraction, adrecord, clean links, affiliates api
  * Version: 1.2
  * Textdomain: ymas
  * Domain Path: /languages
@@ -33,14 +33,10 @@ require_once('src/modules.class.php');
 
 
 /**
- * Require modules
+ * Require Module Wrappers
 */
 require_once('modules/Module.php');
 require_once('modules/AffiliateNetwork.php');
-
-require_once('modules/adtraction/adtraction.class.php');
-require_once('modules/adrecord/adrecord.class.php');
-require_once('modules/double/double.class.php');
 
 //require_once('modules/shortlinks/shortlinks.class.php');
 

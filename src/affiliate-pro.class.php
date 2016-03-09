@@ -8,14 +8,20 @@ class Affiliate {
 	public $admin_dashboard;
 	public $admin_settings_page;
 
-	public $admin_settings_api_tab;
+	public $admin_settings_dashboard_tab;
+	public $admin_settings_tab;
 	public $admin_settings_advanced_tab;
+	public $admin_settings_api_tab;
+
+	public $timezone = "Europe/Stockholm";
 
 	/**
 	 * List of modules that should be loaded 
 	*/
 	public $modules = array(
-		'adrecord', 'adtraction');
+		'dashboard', 'postwordcounter',
+		'adrecord', 'adtraction'
+	);
 
 	public function __construct() {
 
@@ -72,6 +78,12 @@ class Affiliate {
 			$method_name = strtolower($module);			
 			$module = ucfirst($module);		
 
+			require_once(YMAS_ROOT_DIR . 'modules/adtraction/adtraction.class.php');
+			require_once(YMAS_ROOT_DIR . 'modules/adrecord/adrecord.class.php');
+			require_once(YMAS_ROOT_DIR . 'modules/double/double.class.php');
+			require_once(YMAS_ROOT_DIR . 'modules/dashboard/dashboard.class.php');
+			require_once(YMAS_ROOT_DIR . 'modules/postwordcounter/postwordcounter.class.php');
+
 			$class_name = "\YoungMedia\Affiliate\Modules\\{$module}";
 
 			$this->$method_name = new $class_name;
@@ -115,6 +127,10 @@ class Affiliate {
 		wp_enqueue_script( 'angular', YMAS_ASSETS . 'js/angular.min.js');
 		wp_enqueue_style( 'font-awesome', YMAS_ASSETS . 'css/font-awesome.min.css');
 		wp_enqueue_script( 'angular-affiliatePro', YMAS_ASSETS . 'affiliatePro.js');
+		
+		wp_enqueue_script( 'chartjs', YMAS_ASSETS . 'js/chart.min.js');
+		wp_enqueue_script( 'angular-chart', YMAS_ASSETS . 'js/angular-chart.min.js');
+		wp_enqueue_style( 'angular-chart', YMAS_ASSETS . 'css/angular-chart.min.css');
 	}
 
 	public function RegisterTitanDashboard() {
@@ -134,14 +150,20 @@ class Affiliate {
 
 	public function RegisterTitanSettingsTabs() {
 
-		$this->admin_settings_api_tab = $this->admin_settings_page->createTab( array(
-		    'name' => __('Integrations', 'ymas'),
-		    'slug' => 'integrations',
+		$this->admin_settings_dashboard_tab = $this->admin_settings_page->createTab( array(
+		    'name' => __('Dashboard', 'ymas'),
+		));
+
+		$this->admin_settings_tab = $this->admin_settings_page->createTab( array(
+		    'name' => __('Settings', 'ymas'),
 		));
 
 		$this->admin_settings_advanced_tab = $this->admin_settings_page->createTab( array(
 		    'name' => __('Advanced Settings', 'ymas'),
-		    'slug' => 'advanced-settings',
+		));
+
+		$this->admin_settings_api_tab = $this->admin_settings_page->createTab( array(
+		    'name' => __('Integrations', 'ymas'),
 		));
 	}
 
@@ -156,15 +178,8 @@ class Affiliate {
 	}
 
 	public function LoadView( $view_name, $params = array() ) {
-
-		global $ymas;
 		extract($params);
-
-		$titan = \TitanFramework::getInstance( 'ymas' );
-
-		echo '<div ng-app="affiliatePro" id="ng-app">';
 		require( YMAS_ROOT_DIR . 'views/' . $view_name . '.php');
-		echo '</div>';
 	}
 
 }
