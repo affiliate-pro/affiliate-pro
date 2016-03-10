@@ -31,7 +31,7 @@ affiliatePro.controller("OverviewLatestWeek", function ($scope) {
 		[]
 	];
 
-	jQuery(document).ready(function($) {
+	jQuery(window).on('load', function($) {
 		var data = {'action': 'dashboard_lastweek'};
 		jQuery.post(ajaxurl, data, function(response) {
 

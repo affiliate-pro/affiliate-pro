@@ -19,7 +19,7 @@ class Affiliate {
 	 * List of modules that should be loaded 
 	*/
 	public $modules = array(
-		'dashboard', 'postwordcounter',
+		'dashboard', 'shortlinks', 'postwordcounter',
 		'adrecord', 'adtraction'
 	);
 
@@ -78,15 +78,15 @@ class Affiliate {
 			$method_name = strtolower($module);			
 			$module = ucfirst($module);		
 
-			require_once(YMAS_ROOT_DIR . 'modules/adtraction/adtraction.class.php');
-			require_once(YMAS_ROOT_DIR . 'modules/adrecord/adrecord.class.php');
-			require_once(YMAS_ROOT_DIR . 'modules/double/double.class.php');
-			require_once(YMAS_ROOT_DIR . 'modules/dashboard/dashboard.class.php');
-			require_once(YMAS_ROOT_DIR . 'modules/postwordcounter/postwordcounter.class.php');
+			$file = YMAS_ROOT_DIR . 'modules/'.$method_name.'/'.$method_name.'.class.php';
+
+			if (file_exists($file))
+				require_once($file);
 
 			$class_name = "\YoungMedia\Affiliate\Modules\\{$module}";
 
-			$this->$method_name = new $class_name;
+			if (class_exists($class_name))
+				$this->$method_name = new $class_name;
 			
 		}
 	}

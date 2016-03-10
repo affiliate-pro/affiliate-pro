@@ -12,7 +12,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 	 * Filter dates when loading transactions etc.
 	*/
 	public $from_date = "2016-01-01";
-	public $to_date = "2016-03-03";
+	public $to_date = "2016-12-31";
 
 	/** 
 	 * Set default name and slug for module

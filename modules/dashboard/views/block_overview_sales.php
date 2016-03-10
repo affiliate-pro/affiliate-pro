@@ -33,7 +33,7 @@ affiliatePro.controller("OverviewSalesContainer", function ($scope) {
 
 	$scope.data = [];
 
-	jQuery(document).ready(function($) {
+	jQuery(window).on('load', function($) {
 		var data = {'action': 'dashboard_sales_overview'};
 		jQuery.post(ajaxurl, data, function(response) {
 
