@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Affiliate PRO\n"
-"POT-Creation-Date: 2016-03-09 00:28+0100\n"
-"PO-Revision-Date: 2016-03-09 00:29+0100\n"
+"POT-Creation-Date: 2016-03-10 00:58+0100\n"
+"PO-Revision-Date: 2016-03-10 00:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -37,22 +37,22 @@ msgstr "dokumentationen"
 msgid "Enter your channel ID"
 msgstr "Ange kanal ID"
 
-#: modules/adrecord/adrecord.class.php:116
+#: modules/adrecord/adrecord.class.php:122
 msgid "Clean links"
 msgstr "Clean links"
 
-#: modules/adrecord/adrecord.class.php:120
+#: modules/adrecord/adrecord.class.php:126
 msgid "Enable clean links"
 msgstr "Aktivera clean links"
 
-#: modules/adrecord/adrecord.class.php:120
+#: modules/adrecord/adrecord.class.php:126
 msgid ""
 "Clean links is a technique to link to an advertiser with \"regular links\", "
 "<br>example directly to http://example.com instead of http://click.adrecord."
 "com/?p=19&c=235."
 msgstr ""
 
-#: modules/adrecord/adrecord.class.php:120
+#: modules/adrecord/adrecord.class.php:126
 msgid "Read more"
 msgstr "Läs mer"
 
@@ -63,6 +63,10 @@ msgstr "Försäljningsöversikt"
 #: modules/dashboard/dashboard.class.php:48
 msgid "Last week's events"
 msgstr "Senaste veckans händelser"
+
+#: modules/dashboard/views/block_latest_week.php:19
+msgid "Sales"
+msgstr "Försäljning"
 
 #: modules/dashboard/views/block_overview_sales.php:17
 msgid "Today"
@@ -76,44 +80,76 @@ msgstr "Senaste veckan"
 msgid "Last month"
 msgstr "Senaste månaden"
 
-#: src/affiliate-pro.class.php:91 src/affiliate-pro.class.php:92
+#: modules/postwordcounter/postwordcounter.class.php:44
+msgid "Enable Counter"
+msgstr "Aktivera räknaren"
+
+#: modules/postwordcounter/postwordcounter.class.php:48
+msgid "Check this box to enable word counter"
+msgstr "Kryssa i rutan för att aktivera funktionen"
+
+#: modules/postwordcounter/postwordcounter.class.php:48
+msgid "Display amount of post/page words"
+msgstr "Räkna antalet ord per inlägg/sida i admin kolumnerna."
+
+#: modules/postwordcounter/postwordcounter.class.php:52
+msgid "Min Words"
+msgstr "Minst antal ord"
+
+#: modules/postwordcounter/postwordcounter.class.php:56
+msgid "Recommended minimum amount of words per article/page"
+msgstr "Rekommenderat minimum antal ord per artikel/sida"
+
+#: modules/postwordcounter/postwordcounter.class.php:69
+msgid "Word Count"
+msgstr "Ordräknare"
+
+#: src/affiliate-pro.class.php:101 src/affiliate-pro.class.php:102
 #: views/programs.php:2
 msgid "Programs"
 msgstr "Program"
 
-#: src/affiliate-pro.class.php:99 src/affiliate-pro.class.php:100
+#: src/affiliate-pro.class.php:109 src/affiliate-pro.class.php:110
 #: views/earnings.php:2
 msgid "Earnings"
 msgstr "Intjänat"
 
-#: src/affiliate-pro.class.php:128
+#: src/affiliate-pro.class.php:138
 msgid "Affiliate"
 msgstr "Affiliate"
 
 #. Plugin Name of the plugin/theme
-#: src/affiliate-pro.class.php:136
+#: src/affiliate-pro.class.php:146
 msgid "Affiliate PRO"
 msgstr "Affiliate PRO"
 
-#: src/affiliate-pro.class.php:144
+#: src/affiliate-pro.class.php:154
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/affiliate-pro.class.php:148
+#: src/affiliate-pro.class.php:158
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/affiliate-pro.class.php:152
+#: src/affiliate-pro.class.php:162
 msgid "Advanced Settings"
 msgstr "Avancerade Inställningar"
 
-#: src/affiliate-pro.class.php:156
+#: src/affiliate-pro.class.php:166
 msgid "Integrations"
 msgstr "API Integrationer"
 
+#: src/functions.php:40
+msgid "yesterday"
+msgstr "igår"
+
+#: src/functions.php:41
+msgid "today"
+msgstr "idag"
+
 #: src/modules.class.php:59
 msgid "View not found"
-msgstr ""
+msgstr "Sidan hittades inte"
 
 #: views/earnings.php:4
 msgid "Latest transactions"

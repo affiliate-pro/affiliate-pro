@@ -12,16 +12,65 @@ function LoadPluginTextdomain() {
 /**
  * Group array results by date
 */
-function group_by_date($input_dates, $column) {
+function group_by_date($input, $column) {
 
 	$dates = array();
 
-	foreach ($input_dates as $date) {
+	foreach ($input as $date) {
 		$index = date("Y-m-d", strtotime($date[$column]));
 		$dates[$index][] = $date;
 	}
 
 	return $dates;
+}
+
+/**
+ * Group date array by period range (today,week,month)
+*/
+function group_dates_by_range($input, $range) {
+
+	global $ymas;
+
+	$today = strtotime(date('Y-m-d 00:00'));
+	
+	$week = new \DateTime( "7 days ago", new \DateTimeZone($ymas->timezone));
+	$week = strtotime($week->format("Y-m-d 00:00"));
+	
+	$month = new \DateTime( "30 days ago", new \DateTimeZone($ymas->timezone));
+	$month = strtotime($month->format("Y-m-d 00:00"));
+
+	$available_ranges = array(
+		'today' => $today,
+		'week' => $week,
+		'month' => $month
+	);
+
+	if (!isset($available_ranges[$range]))
+		return $input;
+
+	$output = array();
+
+	foreach ($input as $row) {
+		if (strtotime($row['event_date']) >= $available_ranges[$range])
+			$output[] = $row;
+	}
+
+	return $output;
+}
+
+/**
+ * Group array results by network column
+*/
+function group_by_network($input) {
+
+	$output = array();
+
+	foreach ($input as $row) {
+		$index = strtolower($row['network']);
+		$output[$index][] = $row;
+	}
+
+	return $output;
 }
 
 /**
@@ -33,12 +82,12 @@ function last_seven_days_labels() {
 	
 	$dates = array();
 	foreach (last_seven_days() as $date) {
-		$date = \date("D d/m", strtotime($date));
+		$date = \date_i18n("D d/m", strtotime($date));
 		array_push($dates, $date);
 	}
 
-	$dates[6] = $dates[6] . ' (' . __('Yesterday', 'ymas') . ')';
-	$dates[7] = $dates[7] . ' (' . __('Today', 'ymas') . ')';
+	$dates[6] = __('yesterday', 'ymas');
+	$dates[7] = __('today', 'ymas');
 
 	return $dates;
 }

@@ -11,6 +11,7 @@ class ModuleHelper {
 	public $api; 
 	public $slug;
 	public $module_path;
+	public $module_type = 'module';
 
 	public function __construct() {
 

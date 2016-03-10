@@ -24,6 +24,18 @@
 	text-align: center;
 }
 
+.graph_container {
+    position: relative;
+}
+
+.loading_container {
+    text-align: center;position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+}
+
 td {
     vertical-align: middle !important;
 }

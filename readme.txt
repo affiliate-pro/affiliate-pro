@@ -1,10 +1,10 @@
 === Affiliate PRO ===
 Contributors: rkjellberg
-Tags: affiliate, adtraction, adrecord, clean links, affiliate api
-Keywords: affiliate, adtraction, adrecord, clean links, affiliate api
+Tags: affiliate, adtraction, adrecord, clean links, affiliate api, word counter
+Keywords: affiliate, adtraction, adrecord, clean links, affiliate api, word counter
 Requires at least: 3.7
 Tested up to: 4.4.2
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,19 +54,19 @@ More info and documentation can be found at our official website:
 == Changelog ==
 
 = 1.3 =
-*Release Date - 8 mars 2016*
+*Release Date - 10 March 2016*
 
 - Added Dashboard with statistics and charts
 - Improved modules integrations
 - New feature: post/page word counter
 
 = 1.2 =
-*Release Date - 8 mars 2016*
+*Release Date - 8 March 2016*
 
 - Added Clean links support for Adrecord
 
 = 1.1 =
-*Release Date - 6 mars 2016*
+*Release Date - 6 March 2016*
 
 - Added Angular.js support
 - Added language support
@@ -77,7 +77,7 @@ More info and documentation can be found at our official website:
 - Combined all programs tables into one.
 
 = 1.0 =
-*Release Date - 5 mars 2016*
+*Release Date - 5 March 2016*
 
 First release, just to get it live in Wordpress.
 

@@ -1,5 +1,5 @@
-<div ng-controller="OverviewLatestWeek">
-<div class="latest_week_loading" style="text-align: center;">
+<div ng-controller="OverviewLatestWeek" class="graph_container">
+<div class="latest_week_loading loading_container" style="text-align: center;">
 	<i class="fa fa-spinner fa-spin"></i>
 </div>
 <canvas 
@@ -9,14 +9,13 @@
   	chart-labels="labels" 
   	chart-series="series"
   	chart-options="options"
-  	style="display:none"
   >
 </canvas>
 </div>
 <script type="text/javascript">
 affiliatePro.controller("OverviewLatestWeek", function ($scope) {
 	
-	$scope.series = ['<?php _e('Försäljning', 'ymas'); ?>'];
+	$scope.series = ['<?php _e('Sales', 'ymas'); ?>'];
 	$scope.labels = [];
 
 	$scope.options = {
@@ -36,12 +35,9 @@ affiliatePro.controller("OverviewLatestWeek", function ($scope) {
 		var data = {'action': 'dashboard_lastweek'};
 		jQuery.post(ajaxurl, data, function(response) {
 
-			console.log(response);
-
 			if (response.status == 'ok') {
 
 				jQuery('.latest_week_loading').hide();
-				jQuery('#sales_latest_week').fadeIn();
 
 				$scope.$apply(function () {
 					$scope.labels = response.labels;

@@ -1,6 +1,9 @@
-<div ng-controller="OverviewSalesContainer">
+<div ng-controller="OverviewSalesContainer" class="graph_container">
+<div class="sales_overview_loading loading_container">
+	<i class="fa fa-spinner fa-spin"></i>
+</div>
 <canvas 
-	id="chart_overview_salesLatestMonth" 
+	id="sales_overview" 
 	class="chart chart-bar" 
 	chart-data="data"
   	chart-labels="labels" 
@@ -12,11 +15,13 @@
 <script type="text/javascript">
 affiliatePro.controller("OverviewSalesContainer", function ($scope) {
 
-	$scope.labels = ['Adrecord', 'Adtraction','','','','','','','','',''];
+	$scope.labels = [];
+
 	$scope.series = [
 	'<?php _e('Today', 'ymas'); ?>',
 	'<?php _e('Last week', 'ymas'); ?>', 
 	'<?php _e('Last month', 'ymas'); ?>'];
+
 	$scope.options = {
         responsive: true,
         maintainAspectRatio: false,
@@ -25,10 +30,25 @@ affiliatePro.controller("OverviewSalesContainer", function ($scope) {
 		showScale: true,
 		showTooltips: true
     };
-	$scope.data = [
-	[3, 1,0,0,0,0,0,0,0,0,0],
-	[7, 10,0,0,0,0,0,0,0,0,0],
-	[7, 10,0,0,0,0,0,0,0,0,0]
-	];
+
+	$scope.data = [];
+
+	jQuery(document).ready(function($) {
+		var data = {'action': 'dashboard_sales_overview'};
+		jQuery.post(ajaxurl, data, function(response) {
+
+			if (response.status == 'ok') {
+				jQuery('.sales_overview_loading').hide();
+
+				$scope.$apply(function () {
+					$scope.labels = response.labels;
+					$scope.data = response.data;
+				});
+
+			}
+
+		});
+	});
+
 });
 </script>

@@ -8,39 +8,6 @@ class Ajax {
 	public function __construct() {
 		add_action( 'wp_ajax_programs_list', array(&$this, 'ListPrograms') );
 		add_action( 'wp_ajax_earnings_list', array(&$this, 'ListEarnings') );
-		add_action( 'wp_ajax_dashboard_lastweek', array(&$this, 'DashboardLastWeek') );
-	}
-
-	public function DashboardLastWeek() {
-
-		// Create dates and dates labels from last 7 days
-		$dates = \YoungMedia\Affiliate\last_seven_days();
-		$labels = \YoungMedia\Affiliate\last_seven_days_labels();
-
-		// Get and group transactions by date
-		$transactions = $this->CombineLists('transactions');
-		$grouped_transactions = \YoungMedia\Affiliate\group_by_date($transactions, 'event_date');
-
-		// Group results into weeks.
-		$week = array();
-		foreach ($dates as $day) {
-
-			$week[$day] = array();
-			if (isset($grouped_transactions[$day]))
-				$week[$day] = $grouped_transactions[$day];
-			
-		}
-
-		$sales = array();
-		foreach ($week as $results) {
-			$sales[] = count($results);
-		}
-
-		wp_send_json(array(
-			'status' => 'ok',
-			'data' => array($sales),
-			'labels' => $labels,
-		));
 	}
 
 	public function ListPrograms() {

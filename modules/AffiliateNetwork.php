@@ -12,7 +12,7 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 	 * Filter dates when loading transactions etc.
 	*/
 	public $from_date = "2016-01-01";
-	public $to_date = "2016-12-12";
+	public $to_date = "2016-03-03";
 
 	/** 
 	 * Set default name and slug for module
@@ -40,6 +40,8 @@ class AffiliateNetwork extends \YoungMedia\Affiliate\ModuleHelper {
 		*/
 		$this->api_token = $ymas->titan->getOption( $this->slug . '_api_token');
 		$this->channelID = $ymas->titan->getOption( $this->slug . '_channel_id');
+
+		$this->module_type = 'network';
 		
 	}
 	
